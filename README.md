@@ -545,12 +545,12 @@ Demonstrates real-world scenarios where different cloud providers are used for d
 ### **Marcelo Emmott**
 *Backend Developer | NestJS Specialist | Cloud Enthusiast*
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcelo-emmott/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcelo-emmott-sanchez-75475939b/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/marceloemmott-dev)
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/marceloemmott)
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://marceloemmott.dev)
 
-**📧 Email:** [marcelo@emmottlabs.com](mailto:marcelo@emmottlabs.com)
+**📧 Email:** [emmottmarcelo2026@gmail.com](mailto:emmottmarcelo2026@gmail.com)
 
 </div>
 
