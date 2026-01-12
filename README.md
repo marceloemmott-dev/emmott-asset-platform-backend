@@ -79,10 +79,12 @@ Esto **no es una simple demo** — es un **backend SaaS realista** construido pa
 - **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` — Gestión de configuración
 - **ConfigService** — Manejo centralizado de variables de entorno
 
-### **Autenticación y Seguridad** _(En Progreso)_
+### **Autenticación y Seguridad** ✅
 
-- **JWT** — JSON Web Tokens para autenticación sin estado
-- **bcrypt** — Hash de contraseñas _(planificado)_
+- **JWT** — JSON Web Tokens para autenticación sin estado (implementado)
+- **bcrypt** — Hash de contraseñas con salt (implementado)
+- **class-validator** — Validación automática de DTOs
+- **class-transformer** — Serialización y exclusión de datos sensibles
 - **Passport.js** — Middleware de autenticación _(planificado)_
 
 ### **Nube e Infraestructura** _(Planificado)_
@@ -243,19 +245,49 @@ graph LR
 
 ```
 src/
-├── auth/               # Módulo de autenticación (solo estructura)
-│   ├── auth.controller.ts
-│   ├── auth.service.ts
-│   └── auth.module.ts
-├── users/              # Módulo de gestión de usuarios
+├── auth/                           # 🔐 Módulo de Autenticación JWT Completo
+│   ├── dto/
+│   │   ├── login.dto.ts            # DTO para login con validaciones
+│   │   ├── register.dto.ts         # DTO para registro de usuarios
+│   │   └── auth-response.dto.ts    # DTO de respuesta estandarizada
+│   ├── strategies/
+│   │   └── jwt.strategy.ts         # 🔑 Strategy de Passport para JWT
+│   ├── guards/
+│   │   ├── jwt-auth.guard.ts       # 🛡️ Guard de autenticación JWT
+│   │   └── roles.guard.ts          # 🛡️ Guard de roles (RBAC)
+│   ├── decorators/
+│   │   ├── get-user.decorator.ts   # ✨ Obtener usuario autenticado
+│   │   └── roles.decorator.ts      # ✨ Marcar roles requeridos
+│   ├── auth.controller.ts          # 📡 Endpoints REST documentados
+│   ├── auth.service.ts             # ⚙️ Lógica de autenticación y JWT
+│   └── auth.module.ts              # 📦 Configuración del módulo
+│
+├── users/                          # 👥 Módulo de Gestión de Usuarios
+│   ├── dto/
+│   │   └── create-user.dto.ts      # DTO con validaciones y Swagger
 │   ├── entities/
-│   │   └── usuario.entity.ts  # Modelo de dominio (aún no persistido)
-│   ├── users.service.ts
-│   └── users.module.ts
-├── config/             # Gestión de configuración
-│   └── database.config.ts
-└── app.module.ts       # Módulo raíz
+│   │   └── usuario.entity.ts       # 🗄️ Entidad TypeORM con UUID
+│   ├── users.controller.ts         # 📡 CRUD con endpoints protegidos
+│   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt
+│   └── users.module.ts             # 📦 Configuración del módulo
+│
+├── config/                         # ⚙️ Configuración
+│   └── database.config.ts          # Config de TypeORM y PostgreSQL
+│
+├── main.ts                         # 🚀 Bootstrap con Swagger y Validation
+└── app.module.ts                   # 🏗️ Módulo raíz de la aplicación
 ```
+
+**Características Destacadas de la Arquitectura:**
+
+- ✅ **Separación de responsabilidades** - Cada capa tiene un propósito específico
+- ✅ **DTOs con validación** - class-validator y class-transformer integrados
+- ✅ **Guards modulares** - Autenticación y autorización desacopladas
+- ✅ **Strategy Pattern** - JWT validation con Passport.js
+- ✅ **Decoradores personalizados** - Simplifica la lógica en controllers
+- ✅ **Entidades TypeORM** - Mapeo objeto-relacional con decoradores
+- ✅ **Configuración centralizada** - Variables de entorno con ConfigService
+- ✅ **Documentación automática** - Swagger genera docs desde decoradores
 
 ---
 
@@ -374,33 +406,189 @@ Una vez que la aplicación se inicie, deberías ver:
 | `npm run test:e2e`      | Ejecutar pruebas end-to-end                    |
 | `npm run test:cov`      | Ejecutar pruebas con cobertura                 |
 
+
 ---
+
+## 🔌 Uso de la API
+
+### **Documentación Interactiva**
+
+La API cuenta con documentación Swagger interactiva disponible en:
+
+```
+http://localhost:3000/api
+```
+
+### **Colección de Postman**
+
+Importa la colección `postman_collection.json` en Postman para probar todos los endpoints fácilmente.
+
+### **Endpoints Disponibles**
+
+#### **1. Registrar Nuevo Usuario**
+
+**Endpoint:** `POST /auth/register`
+
+**Request:**
+```json
+{
+  "name": "Juan Pérez",
+  "email": "juan.perez@example.com",
+  "password": "MiPassword123!",
+  "role": "COMPANY_ADMIN"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "role": "COMPANY_ADMIN"
+  }
+}
+```
+
+#### **2. Iniciar Sesión**
+
+**Endpoint:** `POST /auth/login`
+
+**Request:**
+```json
+{
+  "email": "juan.perez@example.com",
+  "password": "MiPassword123!"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "role": "COMPANY_ADMIN"
+  }
+}
+```
+
+#### **3. Crear Usuario (sin JWT)**
+
+**Endpoint:** `POST /users`
+
+**Request:**
+```json
+{
+  "name": "María García",
+  "email": "maria.garcia@example.com",
+  "password": "SecurePass456!",
+  "role": "COMPANY_ADMIN"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "660f9511-f3ac-52e5-b827-557766551111",
+  "name": "María García",
+  "email": "maria.garcia@example.com",
+  "role": "COMPANY_ADMIN",
+  "createdAt": "2026-01-12T19:30:00.000Z",
+  "updatedAt": "2026-01-12T19:30:00.000Z"
+}
+```
+
+**Nota:** La contraseña nunca se devuelve en las respuestas (protegida con `@Exclude()`).
+
+#### **4. Buscar Usuario por Email**
+
+**Endpoint:** `GET /users/by-email/:email`
+
+**Ejemplo:** `GET /users/by-email/juan.perez@example.com`
+
+**Response (200 OK):**
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "Juan Pérez",
+  "email": "juan.perez@example.com",
+  "role": "COMPANY_ADMIN",
+  "createdAt": "2026-01-12T19:25:00.000Z",
+  "updatedAt": "2026-01-12T19:25:00.000Z"
+}
+```
+
+### **Ejemplos con cURL**
+
+#### Registrar Usuario
+```bash
+curl -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "password": "MiPassword123!",
+    "role": "COMPANY_ADMIN"
+  }'
+```
+
+#### Login
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "juan.perez@example.com",
+    "password": "MiPassword123!"
+  }'
+```
+
+### **Códigos de Estado HTTP**
+
+| Código | Descripción                          |
+| ------ | ------------------------------------ |
+| 200    | OK - Solicitud exitosa               |
+| 201    | Created - Recurso creado exitosamente |
+| 401    | Unauthorized - Credenciales inválidas |
+| 409    | Conflict - El usuario ya existe       |
+| 500    | Internal Server Error                 |
+
+---
+
 
 ## 📊 Estado del Proyecto
 
 ### **✅ Características Completadas**
 
-| Característica                | Estado       | Descripción                                       |
-| ----------------------------- | ------------ | ------------------------------------------------- |
-| **Configuración del Proyecto** | ✅ Completo  | Proyecto NestJS inicializado con TypeScript       |
-| **Conexión a Base de Datos**  | ✅ Completo  | PostgreSQL (Neon) conectado vía TypeORM           |
-| **Gestión de Configuración**  | ✅ Completo  | Variables de entorno con `ConfigService`          |
-| **Estructura Módulo Auth**    | ✅ Completo  | Módulo, servicio y controlador creados            |
-| **Modelo de Dominio Usuario** | ✅ Completo  | Modelo de usuario a nivel de dominio definido     |
-| **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
-
-### **🚧 En Progreso**
-
-- **Autenticación JWT** — Lógica de login y generación de tokens
-- **Persistencia de Usuarios** — Convertir modelos de dominio a entidades TypeORM
+| Característica                  | Estado      | Descripción                                        |
+| ------------------------------- | ----------- | -------------------------------------------------- |
+| **Configuración del Proyecto**  | ✅ Completo | Proyecto NestJS inicializado con TypeScript        |
+| **Conexión a Base de Datos**    | ✅ Completo | PostgreSQL (Neon) conectado vía TypeORM            |
+| **Gestión de Configuración**    | ✅ Completo | Variables de entorno con `ConfigService`           |
+| **Estructura Módulo Auth**      | ✅ Completo | Módulo, servicio y controlador creados             |
+| **Modelo de Dominio Usuario**   | ✅ Completo | Modelo de usuario a nivel de dominio definido      |
+| **Persistencia de Usuarios**    | ✅ Completo | Entidades TypeORM y Repository Pattern             |
+| **Documentación Swagger**       | ✅ Completo | Documentación interactiva en `/api`                |
+| **Hash de Contraseñas**         | ✅ Completo | Seguridad con bcrypt para usuarios                 |
+| **Autenticación JWT**           | ✅ Completo | Login y registro con tokens JWT                    |
+| **JWT Strategy (Passport)**     | ✅ Completo | Validación de tokens con Passport.js               |
+| **Guards de Autenticación**     | ✅ Completo | JwtAuthGuard y RolesGuard (RBAC)                   |
+| **Decoradores Personalizados**  | ✅ Completo | @GetUser, @Roles para endpoints                    |
+| **Endpoints Protegidos**        | ✅ Completo | Users endpoints con autenticación y roles          |
+| **Colección Postman**           | ✅ Completo | Testing completo con auto-save de JWT              |
+| **Flujo de Trabajo Git**        | ✅ Completo | Estrategia de branching basada en features         |
 
 ### **📋 Características Próximas**
 
-- Guards basados en roles (RBAC)
-- Modelo de dominio de Empresa
-- Módulos de Activos y Categorías
-- Despliegue en Azure
-- Integración con AWS S3
+- 🏢 Modelo de dominio de Empresa
+- 📦 Módulos de Activos y Categorías  
+- ☁️ Despliegue en Azure
+- 📁 Integración con AWS S3
+
 
 ---
 
@@ -480,7 +668,7 @@ gantt
     Pipeline CI/CD          :p12, 2026-03-15, 2026-03-20
 ```
 
-### **Fase 1: Fundamentos** ✅ _Actual_
+### **Fase 1: Fundamentos** ✅ _Completado_
 
 - [x] Inicialización del proyecto
 - [x] Conexión a base de datos (PostgreSQL/Neon)
@@ -488,15 +676,19 @@ gantt
 - [x] Estructura del módulo Auth
 - [x] Modelo de dominio de Usuario
 
-### **Fase 2: Autenticación** 🚧 _En Progreso_
+### **Fase 2: Autenticación** ✅ _Completado_
 
-- [ ] Convertir modelos de dominio a entidades TypeORM
-- [ ] Implementar persistencia de usuarios
-- [ ] Autenticación JWT (login/registro)
-- [ ] Hash de contraseñas (bcrypt)
-- [ ] Guards basados en roles
+- [x] Convertir modelos de dominio a entidades TypeORM
+- [x] Implementar persistencia de usuarios
+- [x] Hash de contraseñas (bcrypt)
+- [x] Autenticación JWT (login/registro)
+- [x] JWT Strategy con Passport
+- [x] Guards basados en roles (RBAC)
+- [x] Decoradores personalizados (@GetUser, @Roles)
+- [x] Endpoints protegidos con autenticación
+- [x] Documentación Swagger completa
 
-### **Fase 3: Características Core** 📋 _Planificado_
+### **Fase 3: Características Core** 📋 _Siguiente_
 
 - [ ] Modelo de dominio de Empresa
 - [ ] Operaciones CRUD de Empresa
