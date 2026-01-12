@@ -2,107 +2,102 @@
 
 # 🏗️ Emmott Asset Platform — Backend
 
-### Enterprise Multi-Tenant Asset Management SaaS Platform
+### Plataforma SaaS Multi-Tenant para Gestión de Activos Empresariales
 
 [![NestJS](https://img.shields.io/badge/NestJS-11.0-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)](https://neon.tech/)
 [![TypeORM](https://img.shields.io/badge/TypeORM-0.3-FE0803?style=for-the-badge&logo=typeorm&logoColor=white)](https://typeorm.io/)
 
-**A professional backend portfolio project demonstrating enterprise-grade SaaS architecture**
+**Un proyecto de portafolio backend profesional que demuestra arquitectura SaaS de nivel empresarial**
 
----
-
-### 🌐 Language / Idioma
-
-[![English](https://img.shields.io/badge/English-Active-blue?style=for-the-badge)](./README.md)
-[![Español](https://img.shields.io/badge/Español-Disponible-green?style=for-the-badge)](./README.es.md)
-
-🇪🇸 **[Leer documentación en Español](./README.es.md)**
-
----
-
-[📖 Documentation](#-table-of-contents) • [🚀 Quick Start](#-quick-start) • [🏗️ Architecture](#-architecture-overview) • [🛣️ Roadmap](#-project-roadmap)
+[📖 Documentación](#-tabla-de-contenidos) • [🚀 Inicio Rápido](#-inicio-rápido) • [🏗️ Arquitectura](#-visión-general-de-la-arquitectura) • [🛣️ Roadmap](#-roadmap-del-proyecto)
 
 ---
 
 </div>
 
-## 📋 Table of Contents
+## 📋 Tabla de Contenidos
 
-- [About the Project](#-about-the-project)
-- [Tech Stack](#-tech-stack)
-- [Architecture Overview](#-architecture-overview)
-- [Quick Start](#-quick-start)
-- [Project Status](#-project-status)
-- [Git Workflow](#-git-workflow)
-- [Project Roadmap](#-project-roadmap)
-- [Architectural Decisions](#-architectural-decisions)
-- [Connect With Me](#-connect-with-me)
-
----
-
-## 🎯 About the Project
-
-**Emmott Asset Platform** is an enterprise-oriented, multi-tenant asset management platform designed to manage companies, users, and assets in a scalable and secure manner.
-
-This repository contains the **backend API**, built with **NestJS**, following **clean architecture principles** and a **feature-based development workflow**.
-
-### 🏢 About Emmott Labs
-
-**Emmott Labs** is a professional software development context created for this project. The goal is to simulate **real-world SaaS development practices**, including:
-
-- ✅ Enterprise architecture decisions
-- ✅ Professional Git workflows
-- ✅ Multi-cloud integration strategies
-- ✅ Production-ready code patterns
-
-### 💡 Project Philosophy
-
-This is **not a simple demo** — it's a **realistic SaaS backend** built to demonstrate:
-
-- 🎯 **Multi-tenant architecture** with logical data isolation
-- 🔐 **Role-based access control** (RBAC)
-- 🏗️ **Clean configuration management** using environment variables
-- ☁️ **Cloud-ready infrastructure** (Azure + AWS)
-- 📐 **Domain-driven design** principles
-- 🧪 **Test-driven development** approach
-- 📝 **Comprehensive documentation**
-
-> **Purpose:** Serve as a strong backend portfolio project for technical interviews and professional showcases.
+- [Acerca del Proyecto](#-acerca-del-proyecto)
+- [Stack Tecnológico](#-stack-tecnológico)
+- [Visión General de la Arquitectura](#-visión-general-de-la-arquitectura)
+- [Inicio Rápido](#-inicio-rápido)
+- [Estado del Proyecto](#-estado-del-proyecto)
+- [Flujo de Trabajo Git](#-flujo-de-trabajo-git)
+- [Roadmap del Proyecto](#-roadmap-del-proyecto)
+- [Decisiones Arquitectónicas](#-decisiones-arquitectónicas)
+- [Conéctate Conmigo](#-conéctate-conmigo)
 
 ---
 
-## 🧱 Tech Stack
+## 🎯 Acerca del Proyecto
 
-### **Core Framework**
-- **[NestJS](https://nestjs.com/)** `v11.0` — Progressive Node.js framework
-- **[TypeScript](https://www.typescriptlang.org/)** `v5.7` — Type-safe JavaScript
+**Emmott Asset Platform** es una plataforma multi-tenant orientada a empresas para la gestión de compañías, usuarios y activos de manera escalable y segura.
 
-### **Database & ORM**
-- **[PostgreSQL](https://www.postgresql.org/)** — Relational database (hosted on [Neon](https://neon.tech/))
-- **[TypeORM](https://typeorm.io/)** `v0.3` — Object-Relational Mapping
+Este repositorio contiene la **API backend**, construida con **NestJS**, siguiendo **principios de arquitectura limpia** y un **flujo de trabajo basado en features**.
 
-### **Configuration & Environment**
-- **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` — Configuration management
-- **ConfigService** — Centralized environment variable handling
+### 🏢 Acerca de Emmott Labs
 
-### **Authentication & Security** *(In Progress)*
-- **JWT** — JSON Web Tokens for stateless authentication
-- **bcrypt** — Password hashing *(planned)*
-- **Passport.js** — Authentication middleware *(planned)*
+**Emmott Labs** es un contexto profesional de desarrollo de software creado para este proyecto. El objetivo es simular **prácticas de desarrollo SaaS del mundo real**, incluyendo:
 
-### **Cloud & Infrastructure** *(Planned)*
-- **[Azure App Service](https://azure.microsoft.com/en-us/services/app-service/)** — Backend deployment
-- **[AWS S3](https://aws.amazon.com/s3/)** — Media storage
+- ✅ Decisiones de arquitectura empresarial
+- ✅ Flujos de trabajo Git profesionales
+- ✅ Estrategias de integración multi-nube
+- ✅ Patrones de código listos para producción
 
-### **Development Tools**
-- **ESLint** `v9.18` — Code linting
-- **Prettier** `v3.4` — Code formatting
-- **Jest** `v30.0` — Testing framework
-- **Git** — Version control with feature-based workflow
+### 💡 Filosofía del Proyecto
 
-### **Dependencies Overview**
+Esto **no es una simple demo** — es un **backend SaaS realista** construido para demostrar:
+
+- 🎯 **Arquitectura multi-tenant** con aislamiento lógico de datos
+- 🔐 **Control de acceso basado en roles** (RBAC)
+- 🏗️ **Gestión de configuración limpia** usando variables de entorno
+- ☁️ **Infraestructura lista para la nube** (Azure + AWS)
+- 📐 Principios de **diseño orientado al dominio**
+- 🧪 Enfoque de **desarrollo dirigido por pruebas**
+- 📝 **Documentación exhaustiva**
+
+> **Propósito:** Servir como un proyecto de portafolio backend sólido para entrevistas técnicas y presentaciones profesionales.
+
+---
+
+## 🧱 Stack Tecnológico
+
+### **Framework Principal**
+
+- **[NestJS](https://nestjs.com/)** `v11.0` — Framework progresivo de Node.js
+- **[TypeScript](https://www.typescriptlang.org/)** `v5.7` — JavaScript con tipado seguro
+
+### **Base de Datos y ORM**
+
+- **[PostgreSQL](https://www.postgresql.org/)** — Base de datos relacional (alojada en [Neon](https://neon.tech/))
+- **[TypeORM](https://typeorm.io/)** `v0.3` — Mapeo Objeto-Relacional
+
+### **Configuración y Entorno**
+
+- **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` — Gestión de configuración
+- **ConfigService** — Manejo centralizado de variables de entorno
+
+### **Autenticación y Seguridad** _(En Progreso)_
+
+- **JWT** — JSON Web Tokens para autenticación sin estado
+- **bcrypt** — Hash de contraseñas _(planificado)_
+- **Passport.js** — Middleware de autenticación _(planificado)_
+
+### **Nube e Infraestructura** _(Planificado)_
+
+- **[Azure App Service](https://azure.microsoft.com/es-es/services/app-service/)** — Despliegue del backend
+- **[AWS S3](https://aws.amazon.com/es/s3/)** — Almacenamiento de medios
+
+### **Herramientas de Desarrollo**
+
+- **ESLint** `v9.18` — Análisis de código
+- **Prettier** `v3.4` — Formateo de código
+- **Jest** `v30.0` — Framework de testing
+- **Git** — Control de versiones con flujo de trabajo basado en features
+
+### **Resumen de Dependencias**
 
 ```json
 {
@@ -117,37 +112,36 @@ This is **not a simple demo** — it's a **realistic SaaS backend** built to dem
 }
 ```
 
-
 ---
 
-## 🏗️ Architecture Overview
+## 🏗️ Visión General de la Arquitectura
 
-### **Multi-Tenant SaaS Model**
+### **Modelo SaaS Multi-Tenant**
 
 ```mermaid
 graph TB
-    subgraph Platform["🏢 Emmott Asset Platform (Platform Owner)"]
-        API[NestJS API Backend]
+    subgraph Platform["🏢 Emmott Asset Platform (Propietario de la Plataforma)"]
+        API[API Backend NestJS]
     end
     
-    subgraph Database["🗄️ PostgreSQL Database (Neon - Single DB)"]
-        subgraph CompanyA["Company A Data"]
-            A1[Users - companyId: A]
-            A2[Assets - companyId: A]
+    subgraph Database["🗄️ Base de Datos PostgreSQL (Neon - DB Única)"]
+        subgraph CompanyA["Datos Empresa A"]
+            A1[Usuarios - companyId: A]
+            A2[Activos - companyId: A]
         end
         
-        subgraph CompanyB["Company B Data"]
-            B1[Users - companyId: B]
-            B2[Assets - companyId: B]
+        subgraph CompanyB["Datos Empresa B"]
+            B1[Usuarios - companyId: B]
+            B2[Activos - companyId: B]
         end
         
-        subgraph CompanyC["Company C Data"]
-            C1[Users - companyId: C]
-            C2[Assets - companyId: C]
+        subgraph CompanyC["Datos Empresa C"]
+            C1[Usuarios - companyId: C]
+            C2[Activos - companyId: C]
         end
     end
     
-    API -->|Manages All Companies| Database
+    API -->|Gestiona Todas las Empresas| Database
     
     style Platform fill:#E0234E,stroke:#fff,stroke-width:2px,color:#fff
     style Database fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
@@ -156,77 +150,77 @@ graph TB
     style CompanyC fill:#9b59b6,stroke:#fff,stroke-width:1px
 ```
 
-**Key Concept:** Logical multi-tenancy via `companyId` — all companies share the same database, but data is isolated at the application level.
+**Concepto Clave:** Multi-tenancy lógico vía `companyId` — todas las empresas comparten la misma base de datos, pero los datos están aislados a nivel de aplicación.
 
-### **Authentication Flow** *(Planned)*
+### **Flujo de Autenticación** _(Planificado)_
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant API as NestJS API
-    participant Auth as Auth Service
+    participant User as Usuario
+    participant API as API NestJS
+    participant Auth as Servicio Auth
     participant DB as PostgreSQL
-    participant JWT as JWT Service
+    participant JWT as Servicio JWT
 
     User->>API: POST /auth/login
-    API->>Auth: Validate credentials
-    Auth->>DB: Query user by email
-    DB-->>Auth: Return user data
-    Auth->>Auth: Verify password (bcrypt)
-    Auth->>JWT: Generate JWT token
-    JWT-->>Auth: Return signed token
-    Auth-->>API: Return token + user info
-    API-->>User: 200 OK + JWT token
+    API->>Auth: Validar credenciales
+    Auth->>DB: Consultar usuario por email
+    DB-->>Auth: Retornar datos del usuario
+    Auth->>Auth: Verificar contraseña (bcrypt)
+    Auth->>JWT: Generar token JWT
+    JWT-->>Auth: Retornar token firmado
+    Auth-->>API: Retornar token + info usuario
+    API-->>User: 200 OK + token JWT
     
-    Note over User,JWT: Subsequent requests include JWT in headers
+    Note over User,JWT: Solicitudes subsecuentes incluyen JWT en headers
     
-    User->>API: GET /assets (with JWT)
-    API->>JWT: Validate token
-    JWT-->>API: Token valid + user data
-    API->>DB: Query assets (filtered by companyId)
-    DB-->>API: Return company assets
-    API-->>User: 200 OK + assets data
+    User->>API: GET /assets (con JWT)
+    API->>JWT: Validar token
+    JWT-->>API: Token válido + datos usuario
+    API->>DB: Consultar activos (filtrado por companyId)
+    DB-->>API: Retornar activos de la empresa
+    API-->>User: 200 OK + datos de activos
 ```
 
-### **Module Architecture**
+### **Arquitectura de Módulos**
 
 ```mermaid
 graph LR
-    subgraph Core["Core Modules"]
-        App[App Module]
-        Config[Config Module]
+    subgraph Core["Módulos Core"]
+        App[Módulo App]
+        Config[Módulo Config]
     end
     
-    subgraph Auth["Authentication"]
-        AuthM[Auth Module]
-        Users[Users Module]
+    subgraph Auth["Autenticación"]
+        AuthM[Módulo Auth]
+        Users[Módulo Users]
     end
     
-    subgraph Business["Business Logic (Planned)"]
-        Companies[Companies Module]
-        Assets[Assets Module]
-        Categories[Categories Module]
+    subgraph Business["Lógica de Negocio (Planificado)"]
+        Companies[Módulo Companies]
+        Assets[Módulo Assets]
+        Categories[Módulo Categories]
     end
     
-    subgraph Infrastructure["Infrastructure"]
+    subgraph Infrastructure["Infraestructura"]
         DB[(TypeORM + PostgreSQL)]
-        Cloud[Cloud Services]
+        Cloud[Servicios Cloud]
     end
     
     App --> Config
     App --> AuthM
     App --> Users
     AuthM --> Users
-    App -.Future.-> Companies
-    App -.Future.-> Assets
-    App -.Future.-> Categories
+    App -.Futuro.-> Companies
+    App -.Futuro.-> Assets
+    App -.Futuro.-> Categories
     
     Users --> DB
     Companies -.-> DB
     Assets -.-> DB
     Categories -.-> DB
     
-    Assets -.Future.-> Cloud
+    Assets -.Futuro.-> Cloud
     
     style Core fill:#E0234E,stroke:#fff,stroke-width:2px,color:#fff
     style Auth fill:#3178C6,stroke:#fff,stroke-width:2px,color:#fff
@@ -234,52 +228,51 @@ graph LR
     style Infrastructure fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
+### **Decisiones Arquitectónicas Clave**
 
-### **Key Architectural Decisions**
+| Decisión                          | Justificación                                                |
+| --------------------------------- | ------------------------------------------------------------ |
+| **Base de Datos Única**           | Modelo SaaS — la plataforma es dueña de la infraestructura  |
+| **Multi-Tenancy Lógico**          | Aislamiento de datos vía columna `companyId`                |
+| **Roles de Plataforma como Enums** | Gestión de roles simple, estable y explícita                |
+| **SSL Habilitado**                | Requerido por Neon, asegura conexiones seguras              |
+| **`synchronize: false`**          | Seguro por defecto — migraciones manuales                   |
+| **Sin Docker**                    | Enfoque en arquitectura, no en contenedorización            |
 
-| Decision | Rationale |
-|----------|-----------|
-| **Single Database** | SaaS model — platform owns infrastructure |
-| **Logical Multi-Tenancy** | Data isolation via `companyId` column |
-| **Platform Roles as Enums** | Simple, stable, explicit role management |
-| **SSL Enabled** | Required by Neon, ensures secure connections |
-| **`synchronize: false`** | Safe by default — manual migrations |
-| **No Docker** | Focus on architecture, not containerization |
-
-### **Current Module Structure**
+### **Estructura Actual de Módulos**
 
 ```
 src/
-├── auth/               # Authentication module (structure only)
+├── auth/               # Módulo de autenticación (solo estructura)
 │   ├── auth.controller.ts
 │   ├── auth.service.ts
 │   └── auth.module.ts
-├── users/              # User management module
+├── users/              # Módulo de gestión de usuarios
 │   ├── entities/
-│   │   └── usuario.entity.ts  # Domain model (not persisted yet)
+│   │   └── usuario.entity.ts  # Modelo de dominio (aún no persistido)
 │   ├── users.service.ts
 │   └── users.module.ts
-├── config/             # Configuration management
+├── config/             # Gestión de configuración
 │   └── database.config.ts
-└── app.module.ts       # Root module
+└── app.module.ts       # Módulo raíz
 ```
 
 ---
 
-## 🚀 Quick Start
+## 🚀 Inicio Rápido
 
-### **Prerequisites**
+### **Prerrequisitos**
 
-Before you begin, ensure you have the following installed:
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
-- **Node.js** `v18+` ([Download](https://nodejs.org/))
-- **npm** `v9+` (comes with Node.js)
-- **Git** ([Download](https://git-scm.com/))
-- **PostgreSQL** account on [Neon](https://neon.tech/) (or local PostgreSQL)
+- **Node.js** `v18+` ([Descargar](https://nodejs.org/))
+- **npm** `v9+` (viene con Node.js)
+- **Git** ([Descargar](https://git-scm.com/))
+- Cuenta de **PostgreSQL** en [Neon](https://neon.tech/) (o PostgreSQL local)
 
 ---
 
-### **Step 1: Clone the Repository**
+### **Paso 1: Clonar el Repositorio**
 
 ```bash
 git clone https://github.com/marceloemmott-dev/emmott-asset-platform-backend.git
@@ -288,62 +281,63 @@ cd emmott-asset-platform-backend
 
 ---
 
-### **Step 2: Install Dependencies**
+### **Paso 2: Instalar Dependencias**
 
 ```bash
 npm install
 ```
 
-This will install all required packages defined in `package.json`.
+Esto instalará todos los paquetes requeridos definidos en `package.json`.
 
 ---
 
-### **Step 3: Configure Environment Variables**
+### **Paso 3: Configurar Variables de Entorno**
 
-Create a `.env` file in the root directory by copying the example:
+Crea un archivo `.env` en el directorio raíz copiando el ejemplo:
 
 ```bash
 cp .env.example .env
 ```
 
-Then edit `.env` with your actual configuration:
+Luego edita `.env` con tu configuración real:
 
 ```env
-# Application Configuration
+# Configuración de la Aplicación
 APP_NAME=Emmott Asset Platform
 NODE_ENV=development
 PORT=3000
 
-# Database Configuration (Neon PostgreSQL)
-DATABASE_URL=postgresql://username:password@host.neon.tech/database?sslmode=require
+# Configuración de Base de Datos (Neon PostgreSQL)
+DATABASE_URL=postgresql://usuario:contraseña@host.neon.tech/database?sslmode=require
 ```
 
-**How to get your Neon DATABASE_URL:**
+**Cómo obtener tu DATABASE_URL de Neon:**
 
-1. Go to [Neon Console](https://console.neon.tech/)
-2. Create a new project (or use existing)
-3. Navigate to **Dashboard** → **Connection Details**
-4. Copy the **Connection String** (it includes SSL by default)
-5. Paste it into your `.env` file
+1. Ve a la [Consola de Neon](https://console.neon.tech/)
+2. Crea un nuevo proyecto (o usa uno existente)
+3. Navega a **Dashboard** → **Connection Details**
+4. Copia el **Connection String** (incluye SSL por defecto)
+5. Pégalo en tu archivo `.env`
 
-**Example:**
+**Ejemplo:**
+
 ```env
-DATABASE_URL=postgresql://myuser:mypassword@ep-cool-name-123456.us-east-2.aws.neon.tech/mydb?sslmode=require
+DATABASE_URL=postgresql://miusuario:micontraseña@ep-cool-name-123456.us-east-2.aws.neon.tech/midb?sslmode=require
 ```
 
 ---
 
-### **Step 4: Run the Application**
+### **Paso 4: Ejecutar la Aplicación**
 
-#### **Development Mode** (with hot-reload)
+#### **Modo Desarrollo** (con hot-reload)
 
 ```bash
 npm run start:dev
 ```
 
-The server will start on `http://localhost:3000`
+El servidor se iniciará en `http://localhost:3000`
 
-#### **Production Mode**
+#### **Modo Producción**
 
 ```bash
 npm run build
@@ -352,72 +346,72 @@ npm run start:prod
 
 ---
 
-### **Step 5: Verify Database Connection**
+### **Paso 5: Verificar Conexión a la Base de Datos**
 
-Once the application starts, you should see:
+Una vez que la aplicación se inicie, deberías ver:
 
 ```
-[Nest] 12345  - 01/12/2026, 1:00:00 PM     LOG [TypeOrmModule] Database connection established
-[Nest] 12345  - 01/12/2026, 1:00:00 PM     LOG [NestApplication] Nest application successfully started
+[Nest] 12345  - 12/01/2026, 13:00:00     LOG [TypeOrmModule] Database connection established
+[Nest] 12345  - 12/01/2026, 13:00:00     LOG [NestApplication] Nest application successfully started
 ```
 
-✅ **Database connection is verified and working!**
+✅ **¡La conexión a la base de datos está verificada y funcionando!**
 
 ---
 
-### **Available Scripts**
+### **Scripts Disponibles**
 
-| Command | Description |
-|---------|-------------|
-| `npm run start` | Start the application |
-| `npm run start:dev` | Start in development mode (watch mode) |
-| `npm run start:debug` | Start in debug mode |
-| `npm run start:prod` | Start in production mode |
-| `npm run build` | Build the application |
-| `npm run format` | Format code with Prettier |
-| `npm run lint` | Lint code with ESLint |
-| `npm run test` | Run unit tests |
-| `npm run test:e2e` | Run end-to-end tests |
-| `npm run test:cov` | Run tests with coverage |
-
----
-
-## 📊 Project Status
-
-### **✅ Completed Features**
-
-| Feature | Status | Description |
-|---------|--------|-------------|
-| **Project Setup** | ✅ Complete | NestJS project initialized with TypeScript |
-| **Database Connection** | ✅ Complete | PostgreSQL (Neon) connected via TypeORM |
-| **Configuration Management** | ✅ Complete | Environment variables with `ConfigService` |
-| **Auth Module Structure** | ✅ Complete | Module, service, and controller created |
-| **User Domain Model** | ✅ Complete | Domain-level user model defined |
-| **Git Workflow** | ✅ Complete | Feature-based branching strategy |
-
-### **🚧 In Progress**
-
-- **JWT Authentication** — Login logic and token generation
-- **User Persistence** — Converting domain models to TypeORM entities
-
-### **📋 Upcoming Features**
-
-- Role-based guards (RBAC)
-- Company domain model
-- Asset & category modules
-- Azure deployment
-- AWS S3 integration
+| Comando                 | Descripción                                    |
+| ----------------------- | ---------------------------------------------- |
+| `npm run start`         | Iniciar la aplicación                          |
+| `npm run start:dev`     | Iniciar en modo desarrollo (watch mode)        |
+| `npm run start:debug`   | Iniciar en modo debug                          |
+| `npm run start:prod`    | Iniciar en modo producción                     |
+| `npm run build`         | Construir la aplicación                        |
+| `npm run format`        | Formatear código con Prettier                  |
+| `npm run lint`          | Analizar código con ESLint                     |
+| `npm run test`          | Ejecutar pruebas unitarias                     |
+| `npm run test:e2e`      | Ejecutar pruebas end-to-end                    |
+| `npm run test:cov`      | Ejecutar pruebas con cobertura                 |
 
 ---
 
-## 🌿 Git Workflow
+## 📊 Estado del Proyecto
 
-This project follows a **professional feature-based Git workflow**:
+### **✅ Características Completadas**
+
+| Característica                | Estado       | Descripción                                       |
+| ----------------------------- | ------------ | ------------------------------------------------- |
+| **Configuración del Proyecto** | ✅ Completo  | Proyecto NestJS inicializado con TypeScript       |
+| **Conexión a Base de Datos**  | ✅ Completo  | PostgreSQL (Neon) conectado vía TypeORM           |
+| **Gestión de Configuración**  | ✅ Completo  | Variables de entorno con `ConfigService`          |
+| **Estructura Módulo Auth**    | ✅ Completo  | Módulo, servicio y controlador creados            |
+| **Modelo de Dominio Usuario** | ✅ Completo  | Modelo de usuario a nivel de dominio definido     |
+| **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
+
+### **🚧 En Progreso**
+
+- **Autenticación JWT** — Lógica de login y generación de tokens
+- **Persistencia de Usuarios** — Convertir modelos de dominio a entidades TypeORM
+
+### **📋 Características Próximas**
+
+- Guards basados en roles (RBAC)
+- Modelo de dominio de Empresa
+- Módulos de Activos y Categorías
+- Despliegue en Azure
+- Integración con AWS S3
+
+---
+
+## 🌿 Flujo de Trabajo Git
+
+Este proyecto sigue un **flujo de trabajo Git profesional basado en features**:
 
 ```
-main (production-ready)
+main (listo para producción)
   │
-  └── develop (integration branch)
+  └── develop (rama de integración)
         │
         ├── feature/database-setup ✅
         ├── feature/auth ✅
@@ -425,125 +419,131 @@ main (production-ready)
         └── feature/user-persistence 📋
 ```
 
-### **Branch Strategy**
+### **Estrategia de Ramas**
 
-| Branch | Purpose |
-|--------|---------|
-| `main` | Stable, production-ready code |
-| `develop` | Integration branch for features |
-| `feature/*` | Isolated feature development |
+| Rama         | Propósito                           |
+| ------------ | ----------------------------------- |
+| `main`       | Código estable, listo para producción |
+| `develop`    | Rama de integración para features   |
+| `feature/*`  | Desarrollo de features aisladas     |
 
-### **Example Workflow**
+### **Ejemplo de Flujo de Trabajo**
 
 ```bash
-# Create a new feature branch
+# Crear una nueva rama de feature
 git checkout develop
 git pull origin develop
-git checkout -b feature/my-new-feature
+git checkout -b feature/mi-nueva-feature
 
-# Work on your feature
+# Trabajar en tu feature
 git add .
-git commit -m "feat: implement my new feature"
+git commit -m "feat: implementar mi nueva feature"
 
-# Push to remote
-git push origin feature/my-new-feature
+# Subir al remoto
+git push origin feature/mi-nueva-feature
 
-# Create a Pull Request to develop
-# After review, merge to develop
-# When stable, merge develop to main
+# Crear un Pull Request a develop
+# Después de la revisión, merge a develop
+# Cuando esté estable, merge develop a main
 ```
 
-This mirrors **real-world team development practices**.
+Esto refleja **prácticas de desarrollo en equipo del mundo real**.
 
 ---
 
-## 🛣️ Project Roadmap
+## 🛣️ Roadmap del Proyecto
 
-### **Development Timeline**
+### **Línea de Tiempo de Desarrollo**
 
 ```mermaid
 gantt
-    title Emmott Asset Platform - Development Roadmap
+    title Emmott Asset Platform - Roadmap de Desarrollo
     dateFormat YYYY-MM-DD
-    section Phase 1: Foundation
-    Project Setup           :done, p1, 2026-01-01, 2026-01-05
-    Database Connection     :done, p2, 2026-01-05, 2026-01-08
-    Auth Module Structure   :done, p3, 2026-01-08, 2026-01-12
+    section Fase 1: Fundamentos
+    Configuración Proyecto  :done, p1, 2026-01-01, 2026-01-05
+    Conexión Base de Datos  :done, p2, 2026-01-05, 2026-01-08
+    Estructura Módulo Auth  :done, p3, 2026-01-08, 2026-01-12
     
-    section Phase 2: Authentication
-    User Persistence        :active, p4, 2026-01-12, 2026-01-18
-    JWT Implementation      :p5, 2026-01-18, 2026-01-25
-    Role-based Guards       :p6, 2026-01-25, 2026-02-01
+    section Fase 2: Autenticación
+    Persistencia Usuarios   :active, p4, 2026-01-12, 2026-01-18
+    Implementación JWT      :p5, 2026-01-18, 2026-01-25
+    Guards Basados en Roles :p6, 2026-01-25, 2026-02-01
     
-    section Phase 3: Core Features
-    Company Module          :p7, 2026-02-01, 2026-02-10
-    Asset Module            :p8, 2026-02-10, 2026-02-20
-    Category Management     :p9, 2026-02-20, 2026-02-28
+    section Fase 3: Características Core
+    Módulo Empresas         :p7, 2026-02-01, 2026-02-10
+    Módulo Activos          :p8, 2026-02-10, 2026-02-20
+    Gestión Categorías      :p9, 2026-02-20, 2026-02-28
     
-    section Phase 4: Cloud Deployment
-    Azure Deployment        :p10, 2026-03-01, 2026-03-10
-    AWS S3 Integration      :p11, 2026-03-10, 2026-03-15
-    CI/CD Pipeline          :p12, 2026-03-15, 2026-03-20
+    section Fase 4: Despliegue Nube
+    Despliegue Azure        :p10, 2026-03-01, 2026-03-10
+    Integración AWS S3      :p11, 2026-03-10, 2026-03-15
+    Pipeline CI/CD          :p12, 2026-03-15, 2026-03-20
 ```
 
-### **Phase 1: Foundation** ✅ *Current*
+### **Fase 1: Fundamentos** ✅ _Actual_
 
-- [x] Project initialization
-- [x] Database connection (PostgreSQL/Neon)
-- [x] Configuration management
-- [x] Auth module structure
-- [x] User domain model
+- [x] Inicialización del proyecto
+- [x] Conexión a base de datos (PostgreSQL/Neon)
+- [x] Gestión de configuración
+- [x] Estructura del módulo Auth
+- [x] Modelo de dominio de Usuario
 
-### **Phase 2: Authentication** 🚧 *In Progress*
+### **Fase 2: Autenticación** 🚧 _En Progreso_
 
-- [ ] Convert domain models to TypeORM entities
-- [ ] Implement user persistence
-- [ ] JWT authentication (login/register)
-- [ ] Password hashing (bcrypt)
-- [ ] Role-based guards
+- [ ] Convertir modelos de dominio a entidades TypeORM
+- [ ] Implementar persistencia de usuarios
+- [ ] Autenticación JWT (login/registro)
+- [ ] Hash de contraseñas (bcrypt)
+- [ ] Guards basados en roles
 
-### **Phase 3: Core Features** 📋 *Planned*
+### **Fase 3: Características Core** 📋 _Planificado_
 
-- [ ] Company domain model
-- [ ] Company CRUD operations
-- [ ] Asset domain model
-- [ ] Category management
-- [ ] Asset CRUD operations
+- [ ] Modelo de dominio de Empresa
+- [ ] Operaciones CRUD de Empresa
+- [ ] Modelo de dominio de Activo
+- [ ] Gestión de Categorías
+- [ ] Operaciones CRUD de Activos
 
-### **Phase 4: Cloud Deployment** 📋 *Planned*
+### **Fase 4: Despliegue en la Nube** 📋 _Planificado_
 
-- [ ] Azure App Service deployment
-- [ ] AWS S3 integration for media
-- [ ] Environment-based configuration
-- [ ] CI/CD pipeline
-
----
-
-## 🧠 Architectural Decisions
-
-### **Why Single Database?**
-SaaS platforms typically use a single database with logical multi-tenancy for cost efficiency and easier maintenance.
-
-### **Why Logical Multi-Tenancy?**
-Using `companyId` for data isolation is simpler than database-per-tenant and scales better for small-to-medium SaaS.
-
-### **Why Platform Roles as Enums?**
-Platform-level roles (`SUPER_ADMIN`, `COMPANY_ADMIN`) are stable and explicit. Company-level dynamic roles will be added later.
-
-### **Why No Docker?**
-This project focuses on **backend architecture** and **code quality**, not containerization. Docker can be added later if needed.
-
-### **Why Multi-Cloud (Azure + AWS)?**
-Demonstrates real-world scenarios where different cloud providers are used for different services (compute vs. storage).
+- [ ] Despliegue en Azure App Service
+- [ ] Integración con AWS S3 para medios
+- [ ] Configuración basada en entornos
+- [ ] Pipeline CI/CD
 
 ---
 
-## 🔗 Connect With Me
+## 🧠 Decisiones Arquitectónicas
+
+### **¿Por qué una Base de Datos Única?**
+
+Las plataformas SaaS típicamente usan una base de datos única con multi-tenancy lógico para eficiencia de costos y mantenimiento más fácil.
+
+### **¿Por qué Multi-Tenancy Lógico?**
+
+Usar `companyId` para aislamiento de datos es más simple que base-de-datos-por-tenant y escala mejor para SaaS pequeño a mediano.
+
+### **¿Por qué Roles de Plataforma como Enums?**
+
+Los roles a nivel de plataforma (`SUPER_ADMIN`, `COMPANY_ADMIN`) son estables y explícitos. Los roles dinámicos a nivel de empresa se agregarán más adelante.
+
+### **¿Por qué Sin Docker?**
+
+Este proyecto se enfoca en **arquitectura backend** y **calidad de código**, no en contenedorización. Docker puede agregarse más adelante si es necesario.
+
+### **¿Por qué Multi-Nube (Azure + AWS)?**
+
+Demuestra escenarios del mundo real donde diferentes proveedores de nube se usan para diferentes servicios (cómputo vs. almacenamiento).
+
+---
+
+## 🔗 Conéctate Conmigo
 
 <div align="center">
 
 ### **Marcelo Emmott**
-*Backend Developer | NestJS Specialist | Cloud Enthusiast*
+
+_Desarrollador Backend | Especialista NestJS | Entusiasta de la Nube_
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcelo-emmott-sanchez-75475939b/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/marceloemmott-dev)
@@ -556,22 +556,22 @@ Demonstrates real-world scenarios where different cloud providers are used for d
 
 ---
 
-## 📄 License
+## 📄 Licencia
 
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+Este proyecto está licenciado bajo la **Licencia MIT** — ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
 <div align="center">
 
-### ✨ **Built with intention, not just code**
+### ✨ **Construido con intención, no solo código**
 
-*This project demonstrates how a backend engineer thinks, not just how code is written.*
+_Este proyecto demuestra cómo piensa un ingeniero backend, no solo cómo se escribe código._
 
-**Every decision is intentional, documented, and aligned with real-world SaaS development practices.**
+**Cada decisión es intencional, documentada y alineada con prácticas de desarrollo SaaS del mundo real.**
 
 ---
 
-**⭐ If you find this project helpful, please consider giving it a star!**
+**⭐ ¡Si encuentras útil este proyecto, considera darle una estrella!**
 
 </div>
