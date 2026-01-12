@@ -392,9 +392,14 @@ Una vez que la aplicación se inicie, deberías ver:
 ### **🚧 En Progreso**
 
 - **Autenticación JWT** — Lógica de login y generación de tokens
-- **Persistencia de Usuarios** — Convertir modelos de dominio a entidades TypeORM
+| **Persistencia de Usuarios**  | ✅ Completo  | Entidades TypeORM y Repository Pattern           |
+| **Documentación Swagger**     | ✅ Completo  | Documentación interactiva en `/api`               |
+| **Hash de Contraseñas**       | ✅ Completo  | Seguridad con bcrypt para usuarios                |
 
-### **📋 Características Próximas**
+### **🚧 En Progreso**
+
+- **Autenticación JWT** — Lógica de login y generación de tokens
+
 
 - Guards basados en roles (RBAC)
 - Modelo de dominio de Empresa
@@ -490,10 +495,10 @@ gantt
 
 ### **Fase 2: Autenticación** 🚧 _En Progreso_
 
-- [ ] Convertir modelos de dominio a entidades TypeORM
-- [ ] Implementar persistencia de usuarios
+- [x] Convertir modelos de dominio a entidades TypeORM
+- [x] Implementar persistencia de usuarios
+- [x] Hash de contraseñas (bcrypt)
 - [ ] Autenticación JWT (login/registro)
-- [ ] Hash de contraseñas (bcrypt)
 - [ ] Guards basados en roles
 
 ### **Fase 3: Características Core** 📋 _Planificado_
