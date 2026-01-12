@@ -553,8 +553,6 @@ curl -X POST http://localhost:3000/auth/login \
 
 ### **✅ Características Completadas**
 
-| Característica                | Estado       | Descripción                                       |
-| ----------------------------- | ------------ | ------------------------------------------------- |
 | **Configuración del Proyecto** | ✅ Completo  | Proyecto NestJS inicializado con TypeScript       |
 | **Conexión a Base de Datos**  | ✅ Completo  | PostgreSQL (Neon) conectado vía TypeORM           |
 | **Gestión de Configuración**  | ✅ Completo  | Variables de entorno con `ConfigService`          |
@@ -564,11 +562,15 @@ curl -X POST http://localhost:3000/auth/login \
 | **Documentación Swagger**     | ✅ Completo  | Documentación interactiva en `/api`               |
 | **Hash de Contraseñas**       | ✅ Completo  | Seguridad con bcrypt para usuarios                |
 | **Autenticación JWT**         | ✅ Completo  | Login y registro con tokens JWT                   |
+| **JWT Strategy (Passport)**   | ✅ Completo  | Validación de tokens con Passport.js              |
+| **Guards de Autenticación**   | ✅ Completo  | JwtAuthGuard y RolesGuard (RBAC)                  |
+| **Decoradores Personalizados**| ✅ Completo  | @GetUser, @Roles para endpoints                   |
+| **Endpoints Protegidos**      | ✅ Completo  | Users endpoints con autenticación y roles         |
+| **Colección Postman**         | ✅ Completo  | Testing completo con auto-save de JWT             |
 | **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
 
 ### **📋 Características Próximas**
 
-- Guards basados en roles (RBAC)
 - Modelo de dominio de Empresa
 - Módulos de Activos y Categorías
 - Despliegue en Azure
@@ -653,7 +655,7 @@ gantt
     Pipeline CI/CD          :p12, 2026-03-15, 2026-03-20
 ```
 
-### **Fase 1: Fundamentos** ✅ _Actual_
+### **Fase 1: Fundamentos** ✅ _Completado_
 
 - [x] Inicialización del proyecto
 - [x] Conexión a base de datos (PostgreSQL/Neon)
@@ -661,15 +663,19 @@ gantt
 - [x] Estructura del módulo Auth
 - [x] Modelo de dominio de Usuario
 
-### **Fase 2: Autenticación** 🚧 _En Progreso_
+### **Fase 2: Autenticación** ✅ _Completado_
 
 - [x] Convertir modelos de dominio a entidades TypeORM
 - [x] Implementar persistencia de usuarios
 - [x] Hash de contraseñas (bcrypt)
-- [ ] Autenticación JWT (login/registro)
-- [ ] Guards basados en roles
+- [x] Autenticación JWT (login/registro)
+- [x] JWT Strategy con Passport
+- [x] Guards basados en roles (RBAC)
+- [x] Decoradores personalizados (@GetUser, @Roles)
+- [x] Endpoints protegidos con autenticación
+- [x] Documentación Swagger completa
 
-### **Fase 3: Características Core** 📋 _Planificado_
+### **Fase 3: Características Core** 📋 _Siguiente_
 
 - [ ] Modelo de dominio de Empresa
 - [ ] Operaciones CRUD de Empresa
