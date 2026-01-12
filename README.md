@@ -79,10 +79,12 @@ Esto **no es una simple demo** — es un **backend SaaS realista** construido pa
 - **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` — Gestión de configuración
 - **ConfigService** — Manejo centralizado de variables de entorno
 
-### **Autenticación y Seguridad** _(En Progreso)_
+### **Autenticación y Seguridad** ✅
 
-- **JWT** — JSON Web Tokens para autenticación sin estado
-- **bcrypt** — Hash de contraseñas _(planificado)_
+- **JWT** — JSON Web Tokens para autenticación sin estado (implementado)
+- **bcrypt** — Hash de contraseñas con salt (implementado)
+- **class-validator** — Validación automática de DTOs
+- **class-transformer** — Serialización y exclusión de datos sensibles
 - **Passport.js** — Middleware de autenticación _(planificado)_
 
 ### **Nube e Infraestructura** _(Planificado)_
@@ -243,19 +245,38 @@ graph LR
 
 ```
 src/
-├── auth/               # Módulo de autenticación (solo estructura)
-│   ├── auth.controller.ts
-│   ├── auth.service.ts
-│   └── auth.module.ts
-├── users/              # Módulo de gestión de usuarios
+├── auth/                      # 🔐 Módulo de Autenticación JWT
+│   ├── dto/
+│   │   ├── login.dto.ts       # DTO para login con validaciones
+│   │   ├── register.dto.ts    # DTO para registro de usuarios
+│   │   └── auth-response.dto.ts # DTO de respuesta estandarizada
+│   ├── auth.controller.ts     # Endpoints REST documentados
+│   ├── auth.service.ts        # Lógica de autenticación y JWT
+│   └── auth.module.ts         # Configuración del módulo
+│
+├── users/                     # 👥 Módulo de Gestión de Usuarios
+│   ├── dto/
+│   │   └── create-user.dto.ts # DTO con validaciones
 │   ├── entities/
-│   │   └── usuario.entity.ts  # Modelo de dominio (aún no persistido)
-│   ├── users.service.ts
-│   └── users.module.ts
-├── config/             # Gestión de configuración
-│   └── database.config.ts
-└── app.module.ts       # Módulo raíz
+│   │   └── usuario.entity.ts  # Entidad TypeORM con UUID
+│   ├── users.controller.ts    # CRUD de usuarios
+│   ├── users.service.ts       # Lógica de negocio + bcrypt
+│   └── users.module.ts        # Configuración del módulo
+│
+├── config/                    # ⚙️ Configuración
+│   └── database.config.ts     # Config de TypeORM y PostgreSQL
+│
+├── main.ts                    # 🚀 Bootstrap con Swagger
+└── app.module.ts              # 🏗️ Módulo raíz
 ```
+
+**Características Destacadas:**
+- ✅ Arquitectura modular y escalable
+- ✅ DTOs con validaciones automáticas (class-validator)
+- ✅ Entidades TypeORM con decoradores
+- ✅ Separación de responsabilidades (Controller → Service → Repository)
+- ✅ Configuración centralizada con variables de entorno
+- ✅ Documentación automática con Swagger
 
 ---
 
