@@ -374,7 +374,159 @@ Una vez que la aplicación se inicie, deberías ver:
 | `npm run test:e2e`      | Ejecutar pruebas end-to-end                    |
 | `npm run test:cov`      | Ejecutar pruebas con cobertura                 |
 
+
 ---
+
+## 🔌 Uso de la API
+
+### **Documentación Interactiva**
+
+La API cuenta con documentación Swagger interactiva disponible en:
+
+```
+http://localhost:3000/api
+```
+
+### **Colección de Postman**
+
+Importa la colección `postman_collection.json` en Postman para probar todos los endpoints fácilmente.
+
+### **Endpoints Disponibles**
+
+#### **1. Registrar Nuevo Usuario**
+
+**Endpoint:** `POST /auth/register`
+
+**Request:**
+```json
+{
+  "name": "Juan Pérez",
+  "email": "juan.perez@example.com",
+  "password": "MiPassword123!",
+  "role": "COMPANY_ADMIN"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "role": "COMPANY_ADMIN"
+  }
+}
+```
+
+#### **2. Iniciar Sesión**
+
+**Endpoint:** `POST /auth/login`
+
+**Request:**
+```json
+{
+  "email": "juan.perez@example.com",
+  "password": "MiPassword123!"
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "role": "COMPANY_ADMIN"
+  }
+}
+```
+
+#### **3. Crear Usuario (sin JWT)**
+
+**Endpoint:** `POST /users`
+
+**Request:**
+```json
+{
+  "name": "María García",
+  "email": "maria.garcia@example.com",
+  "password": "SecurePass456!",
+  "role": "COMPANY_ADMIN"
+}
+```
+
+**Response (201 Created):**
+```json
+{
+  "id": "660f9511-f3ac-52e5-b827-557766551111",
+  "name": "María García",
+  "email": "maria.garcia@example.com",
+  "role": "COMPANY_ADMIN",
+  "createdAt": "2026-01-12T19:30:00.000Z",
+  "updatedAt": "2026-01-12T19:30:00.000Z"
+}
+```
+
+**Nota:** La contraseña nunca se devuelve en las respuestas (protegida con `@Exclude()`).
+
+#### **4. Buscar Usuario por Email**
+
+**Endpoint:** `GET /users/by-email/:email`
+
+**Ejemplo:** `GET /users/by-email/juan.perez@example.com`
+
+**Response (200 OK):**
+```json
+{
+  "id": "550e8400-e29b-41d4-a716-446655440000",
+  "name": "Juan Pérez",
+  "email": "juan.perez@example.com",
+  "role": "COMPANY_ADMIN",
+  "createdAt": "2026-01-12T19:25:00.000Z",
+  "updatedAt": "2026-01-12T19:25:00.000Z"
+}
+```
+
+### **Ejemplos con cURL**
+
+#### Registrar Usuario
+```bash
+curl -X POST http://localhost:3000/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Juan Pérez",
+    "email": "juan.perez@example.com",
+    "password": "MiPassword123!",
+    "role": "COMPANY_ADMIN"
+  }'
+```
+
+#### Login
+```bash
+curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "juan.perez@example.com",
+    "password": "MiPassword123!"
+  }'
+```
+
+### **Códigos de Estado HTTP**
+
+| Código | Descripción                          |
+| ------ | ------------------------------------ |
+| 200    | OK - Solicitud exitosa               |
+| 201    | Created - Recurso creado exitosamente |
+| 401    | Unauthorized - Credenciales inválidas |
+| 409    | Conflict - El usuario ya existe       |
+| 500    | Internal Server Error                 |
+
+---
+
 
 ## 📊 Estado del Proyecto
 
@@ -387,25 +539,20 @@ Una vez que la aplicación se inicie, deberías ver:
 | **Gestión de Configuración**  | ✅ Completo  | Variables de entorno con `ConfigService`          |
 | **Estructura Módulo Auth**    | ✅ Completo  | Módulo, servicio y controlador creados            |
 | **Modelo de Dominio Usuario** | ✅ Completo  | Modelo de usuario a nivel de dominio definido     |
-| **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
-
-### **🚧 En Progreso**
-
-- **Autenticación JWT** — Lógica de login y generación de tokens
 | **Persistencia de Usuarios**  | ✅ Completo  | Entidades TypeORM y Repository Pattern           |
 | **Documentación Swagger**     | ✅ Completo  | Documentación interactiva en `/api`               |
 | **Hash de Contraseñas**       | ✅ Completo  | Seguridad con bcrypt para usuarios                |
+| **Autenticación JWT**         | ✅ Completo  | Login y registro con tokens JWT                   |
+| **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
 
-### **🚧 En Progreso**
-
-- **Autenticación JWT** — Lógica de login y generación de tokens
-
+### **📋 Características Próximas**
 
 - Guards basados en roles (RBAC)
 - Modelo de dominio de Empresa
 - Módulos de Activos y Categorías
 - Despliegue en Azure
 - Integración con AWS S3
+
 
 ---
 
