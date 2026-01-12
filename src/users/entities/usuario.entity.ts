@@ -3,7 +3,6 @@ export enum UserRole {
   COMPANY_ADMIN = 'COMPANY_ADMIN',
 }
 
-
 export class Usuario {
   id: number;
   name: string;
