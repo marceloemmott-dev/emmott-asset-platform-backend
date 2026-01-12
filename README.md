@@ -245,38 +245,49 @@ graph LR
 
 ```
 src/
-├── auth/                      # 🔐 Módulo de Autenticación JWT
+├── auth/                           # 🔐 Módulo de Autenticación JWT Completo
 │   ├── dto/
-│   │   ├── login.dto.ts       # DTO para login con validaciones
-│   │   ├── register.dto.ts    # DTO para registro de usuarios
-│   │   └── auth-response.dto.ts # DTO de respuesta estandarizada
-│   ├── auth.controller.ts     # Endpoints REST documentados
-│   ├── auth.service.ts        # Lógica de autenticación y JWT
-│   └── auth.module.ts         # Configuración del módulo
+│   │   ├── login.dto.ts            # DTO para login con validaciones
+│   │   ├── register.dto.ts         # DTO para registro de usuarios
+│   │   └── auth-response.dto.ts    # DTO de respuesta estandarizada
+│   ├── strategies/
+│   │   └── jwt.strategy.ts         # 🔑 Strategy de Passport para JWT
+│   ├── guards/
+│   │   ├── jwt-auth.guard.ts       # 🛡️ Guard de autenticación JWT
+│   │   └── roles.guard.ts          # 🛡️ Guard de roles (RBAC)
+│   ├── decorators/
+│   │   ├── get-user.decorator.ts   # ✨ Obtener usuario autenticado
+│   │   └── roles.decorator.ts      # ✨ Marcar roles requeridos
+│   ├── auth.controller.ts          # 📡 Endpoints REST documentados
+│   ├── auth.service.ts             # ⚙️ Lógica de autenticación y JWT
+│   └── auth.module.ts              # 📦 Configuración del módulo
 │
-├── users/                     # 👥 Módulo de Gestión de Usuarios
+├── users/                          # 👥 Módulo de Gestión de Usuarios
 │   ├── dto/
-│   │   └── create-user.dto.ts # DTO con validaciones
+│   │   └── create-user.dto.ts      # DTO con validaciones y Swagger
 │   ├── entities/
-│   │   └── usuario.entity.ts  # Entidad TypeORM con UUID
-│   ├── users.controller.ts    # CRUD de usuarios
-│   ├── users.service.ts       # Lógica de negocio + bcrypt
-│   └── users.module.ts        # Configuración del módulo
+│   │   └── usuario.entity.ts       # 🗄️ Entidad TypeORM con UUID
+│   ├── users.controller.ts         # 📡 CRUD con endpoints protegidos
+│   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt
+│   └── users.module.ts             # 📦 Configuración del módulo
 │
-├── config/                    # ⚙️ Configuración
-│   └── database.config.ts     # Config de TypeORM y PostgreSQL
+├── config/                         # ⚙️ Configuración
+│   └── database.config.ts          # Config de TypeORM y PostgreSQL
 │
-├── main.ts                    # 🚀 Bootstrap con Swagger
-└── app.module.ts              # 🏗️ Módulo raíz
+├── main.ts                         # 🚀 Bootstrap con Swagger y Validation
+└── app.module.ts                   # 🏗️ Módulo raíz de la aplicación
 ```
 
-**Características Destacadas:**
-- ✅ Arquitectura modular y escalable
-- ✅ DTOs con validaciones automáticas (class-validator)
-- ✅ Entidades TypeORM con decoradores
-- ✅ Separación de responsabilidades (Controller → Service → Repository)
-- ✅ Configuración centralizada con variables de entorno
-- ✅ Documentación automática con Swagger
+**Características Destacadas de la Arquitectura:**
+
+- ✅ **Separación de responsabilidades** - Cada capa tiene un propósito específico
+- ✅ **DTOs con validación** - class-validator y class-transformer integrados
+- ✅ **Guards modulares** - Autenticación y autorización desacopladas
+- ✅ **Strategy Pattern** - JWT validation con Passport.js
+- ✅ **Decoradores personalizados** - Simplifica la lógica en controllers
+- ✅ **Entidades TypeORM** - Mapeo objeto-relacional con decoradores
+- ✅ **Configuración centralizada** - Variables de entorno con ConfigService
+- ✅ **Documentación automática** - Swagger genera docs desde decoradores
 
 ---
 
@@ -553,28 +564,30 @@ curl -X POST http://localhost:3000/auth/login \
 
 ### **✅ Características Completadas**
 
-| **Configuración del Proyecto** | ✅ Completo  | Proyecto NestJS inicializado con TypeScript       |
-| **Conexión a Base de Datos**  | ✅ Completo  | PostgreSQL (Neon) conectado vía TypeORM           |
-| **Gestión de Configuración**  | ✅ Completo  | Variables de entorno con `ConfigService`          |
-| **Estructura Módulo Auth**    | ✅ Completo  | Módulo, servicio y controlador creados            |
-| **Modelo de Dominio Usuario** | ✅ Completo  | Modelo de usuario a nivel de dominio definido     |
-| **Persistencia de Usuarios**  | ✅ Completo  | Entidades TypeORM y Repository Pattern           |
-| **Documentación Swagger**     | ✅ Completo  | Documentación interactiva en `/api`               |
-| **Hash de Contraseñas**       | ✅ Completo  | Seguridad con bcrypt para usuarios                |
-| **Autenticación JWT**         | ✅ Completo  | Login y registro con tokens JWT                   |
-| **JWT Strategy (Passport)**   | ✅ Completo  | Validación de tokens con Passport.js              |
-| **Guards de Autenticación**   | ✅ Completo  | JwtAuthGuard y RolesGuard (RBAC)                  |
-| **Decoradores Personalizados**| ✅ Completo  | @GetUser, @Roles para endpoints                   |
-| **Endpoints Protegidos**      | ✅ Completo  | Users endpoints con autenticación y roles         |
-| **Colección Postman**         | ✅ Completo  | Testing completo con auto-save de JWT             |
-| **Flujo de Trabajo Git**      | ✅ Completo  | Estrategia de branching basada en features        |
+| Característica                  | Estado      | Descripción                                        |
+| ------------------------------- | ----------- | -------------------------------------------------- |
+| **Configuración del Proyecto**  | ✅ Completo | Proyecto NestJS inicializado con TypeScript        |
+| **Conexión a Base de Datos**    | ✅ Completo | PostgreSQL (Neon) conectado vía TypeORM            |
+| **Gestión de Configuración**    | ✅ Completo | Variables de entorno con `ConfigService`           |
+| **Estructura Módulo Auth**      | ✅ Completo | Módulo, servicio y controlador creados             |
+| **Modelo de Dominio Usuario**   | ✅ Completo | Modelo de usuario a nivel de dominio definido      |
+| **Persistencia de Usuarios**    | ✅ Completo | Entidades TypeORM y Repository Pattern             |
+| **Documentación Swagger**       | ✅ Completo | Documentación interactiva en `/api`                |
+| **Hash de Contraseñas**         | ✅ Completo | Seguridad con bcrypt para usuarios                 |
+| **Autenticación JWT**           | ✅ Completo | Login y registro con tokens JWT                    |
+| **JWT Strategy (Passport)**     | ✅ Completo | Validación de tokens con Passport.js               |
+| **Guards de Autenticación**     | ✅ Completo | JwtAuthGuard y RolesGuard (RBAC)                   |
+| **Decoradores Personalizados**  | ✅ Completo | @GetUser, @Roles para endpoints                    |
+| **Endpoints Protegidos**        | ✅ Completo | Users endpoints con autenticación y roles          |
+| **Colección Postman**           | ✅ Completo | Testing completo con auto-save de JWT              |
+| **Flujo de Trabajo Git**        | ✅ Completo | Estrategia de branching basada en features         |
 
 ### **📋 Características Próximas**
 
-- Modelo de dominio de Empresa
-- Módulos de Activos y Categorías
-- Despliegue en Azure
-- Integración con AWS S3
+- 🏢 Modelo de dominio de Empresa
+- 📦 Módulos de Activos y Categorías  
+- ☁️ Despliegue en Azure
+- 📁 Integración con AWS S3
 
 
 ---
