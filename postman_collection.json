@@ -1,15 +1,17 @@
 {
   "info": {
-    "name": "Emmott Asset Platform API",
-    "description": "Complete collection for testing the Emmott Asset Platform backend API with JWT authentication",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "name": "Emmott Asset Platform API - Complete Auth Flow",
+    "description": "Complete authentication workflow including registration, login, forgot password, and reset password with automatic JWT token management. All emails are sent via Resend.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "2.0.0"
   },
   "item": [
     {
-      "name": "Authentication",
+      "name": "📋 Complete Authentication Flow",
+      "description": "Follow these requests in order to test the complete authentication system",
       "item": [
         {
-          "name": "Register User",
+          "name": "1️⃣ Register New User",
           "request": {
             "method": "POST",
             "header": [
@@ -27,7 +29,7 @@
               "host": ["{{baseUrl}}"],
               "path": ["auth", "register"]
             },
-            "description": "Register a new user and receive JWT token automatically"
+            "description": "✅ **Step 1:** Register a new user account\n\n**What happens:**\n- User is created in database\n- Password is hashed with bcrypt\n- JWT token is returned automatically\n- Token is saved to environment variable"
           },
           "response": [],
           "event": [
@@ -38,7 +40,9 @@
                   "if (pm.response.code === 201) {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set(\"jwt_token\", jsonData.accessToken);",
-                  "    console.log(\"JWT Token saved:\", jsonData.accessToken);",
+                  "    pm.environment.set(\"user_email\", jsonData.user.email);",
+                  "    console.log(\"✅ User registered! JWT Token saved:\", jsonData.accessToken);",
+                  "    console.log(\"📧 Email saved:\", jsonData.user.email);",
                   "}"
                 ],
                 "type": "text/javascript"
@@ -47,7 +51,7 @@
           ]
         },
         {
-          "name": "Login",
+          "name": "2️⃣ Login with Credentials",
           "request": {
             "method": "POST",
             "header": [
@@ -58,14 +62,14 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"email\": \"admin@gmasil.com\",\n  \"password\": \"jesus12345\"\n}"
+              "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"StrongPassword123!\"\n}"
             },
             "url": {
               "raw": "{{baseUrl}}/auth/login",
               "host": ["{{baseUrl}}"],
               "path": ["auth", "login"]
             },
-            "description": "Login with email and password to receive JWT token"
+            "description": "✅ **Step 2:** Login with email and password\n\n**What happens:**\n- Credentials are validated\n- Password is verified with bcrypt\n- New JWT token is issued\n- Token is saved to environment"
           },
           "response": [],
           "event": [
@@ -76,7 +80,91 @@
                   "if (pm.response.code === 200) {",
                   "    var jsonData = pm.response.json();",
                   "    pm.environment.set(\"jwt_token\", jsonData.accessToken);",
-                  "    console.log(\"JWT Token saved:\", jsonData.accessToken);",
+                  "    console.log(\"✅ Login successful! JWT Token saved:\", jsonData.accessToken);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ]
+        },
+        {
+          "name": "3️⃣ Request Password Reset",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{user_email}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/forgot-password",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "forgot-password"]
+            },
+            "description": "📧 **Step 3:** Request password reset\n\n**What happens:**\n- Random token (32 bytes) is generated\n- Token is saved to database with 1-hour expiration\n- Email sent via Resend with reset token\n- Check your email and copy the token!"
+          },
+          "response": []
+        },
+        {
+          "name": "4️⃣ Reset Password with Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"PASTE_TOKEN_FROM_EMAIL_HERE\",\n  \"newPassword\": \"NewSecurePassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/reset-password",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "reset-password"]
+            },
+            "description": "🔐 **Step 4:** Reset password using token from email\n\n**What happens:**\n- Token is validated (not expired, exists)\n- New password is hashed with bcrypt\n- Password is updated in database\n- Reset token is cleared\n- Confirmation email sent via Resend\n\n⚠️ **Important:** Paste the token from your email in the request body!"
+          },
+          "response": []
+        },
+        {
+          "name": "5️⃣ Login with New Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{user_email}}\",\n  \"password\": \"NewSecurePassword123!\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/auth/login",
+              "host": ["{{baseUrl}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "✅ **Step 5:** Verify new password works\n\n**What happens:**\n- Login with the new password\n- If successful, password was reset correctly!\n- JWT token is issued"
+          },
+          "response": [],
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "    var jsonData = pm.response.json();",
+                  "    pm.environment.set(\"jwt_token\", jsonData.accessToken);",
+                  "    console.log(\"✅ New password works! JWT Token saved:\", jsonData.accessToken);",
                   "}"
                 ],
                 "type": "text/javascript"
@@ -87,7 +175,8 @@
       ]
     },
     {
-      "name": "Users (Protected)",
+      "name": "👥 Protected User Endpoints",
+      "description": "These endpoints require JWT authentication",
       "item": [
         {
           "name": "Create User (Admin Only)",
@@ -101,7 +190,7 @@
               {
                 "key": "Authorization",
                 "value": "Bearer {{jwt_token}}",
-                "description": "JWT token from login/register"
+                "description": "Auto-filled from environment"
               }
             ],
             "body": {
@@ -113,27 +202,27 @@
               "host": ["{{baseUrl}}"],
               "path": ["users"]
             },
-            "description": "Create a new user. Requires JWT token and SUPER_ADMIN or COMPANY_ADMIN role."
+            "description": "🔒 **Protected:** Requires JWT + Admin role\n\nCreates a new user. Only accessible to SUPER_ADMIN or COMPANY_ADMIN."
           },
           "response": []
         },
         {
-          "name": "Find User by Email (Authenticated)",
+          "name": "Find User by Email",
           "request": {
             "method": "GET",
             "header": [
               {
                 "key": "Authorization",
                 "value": "Bearer {{jwt_token}}",
-                "description": "JWT token from login/register"
+                "description": "Auto-filled from environment"
               }
             ],
             "url": {
-              "raw": "{{baseUrl}}/users/by-email/admin@gmasil.com",
+              "raw": "{{baseUrl}}/users/by-email/{{user_email}}",
               "host": ["{{baseUrl}}"],
-              "path": ["users", "by-email", "admin@gmasil.com"]
+              "path": ["users", "by-email", "{{user_email}}"]
             },
-            "description": "Find a user by their email address. Requires valid JWT token."
+            "description": "🔒 **Protected:** Requires JWT\n\nSearches for a user by their email address."
           },
           "response": []
         }
@@ -148,6 +237,11 @@
     },
     {
       "key": "jwt_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "user_email",
       "value": "",
       "type": "string"
     }

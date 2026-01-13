@@ -39,4 +39,30 @@ export class UsersService {
 
     return this.usersRepository.save(user);
   }
+
+  // Métodos para reset de contraseña
+  async updateResetToken(
+    userId: string,
+    resetToken: string,
+    resetTokenExpires: Date,
+  ): Promise<void> {
+    await this.usersRepository.update(userId, {
+      resetToken,
+      resetTokenExpires,
+    });
+  }
+
+  async findByResetToken(token: string): Promise<User | null> {
+    return this.usersRepository.findOne({
+      where: { resetToken: token },
+    });
+  }
+
+  async updatePassword(userId: string, hashedPassword: string): Promise<void> {
+    await this.usersRepository.update(userId, {
+      password: hashedPassword,
+      resetToken: undefined,
+      resetTokenExpires: undefined,
+    });
+  }
 }

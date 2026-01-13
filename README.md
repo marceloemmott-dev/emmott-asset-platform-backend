@@ -87,6 +87,14 @@ Esto **no es una simple demo** — es un **backend SaaS realista** construido pa
 - **class-transformer** — Serialización y exclusión de datos sensibles
 - **Passport.js** — Middleware de autenticación _(planificado)_
 
+### **Servicios de Email** ✅
+
+- **[Resend](https://resend.com/)** — Servicio de envío de emails transaccionales (implementado)
+  - Reset de contraseñas con tokens seguros
+  - Confirmación de cambio de contraseña
+  - Templates HTML profesionales con personalización
+  - Integración con ConfigService
+
 ### **Nube e Infraestructura** _(Planificado)_
 
 - **[Azure App Service](https://azure.microsoft.com/es-es/services/app-service/)** — Despliegue del backend
@@ -553,9 +561,271 @@ curl -X POST http://localhost:3000/auth/login \
 | ------ | ------------------------------------ |
 | 200    | OK - Solicitud exitosa               |
 | 201    | Created - Recurso creado exitosamente |
+| 400    | Bad Request - Error en datos de entrada |
 | 401    | Unauthorized - Credenciales inválidas |
 | 409    | Conflict - El usuario ya existe       |
 | 500    | Internal Server Error                 |
+
+---
+
+## 📧 Sistema de Reset de Contraseña con Resend
+
+El sistema implementa un flujo completo y seguro de recuperación de contraseñas usando [Resend](https://resend.com/) para el envío de emails transaccionales.
+
+### **🔐 Características de Seguridad**
+
+- ✅ **Tokens aleatorios** de 32 bytes generados con `crypto.randomBytes()`
+- ✅ **Expiración automática** de tokens en 1 hora
+- ✅ **Tokens de un solo uso** - se limpian después de ser utilizados
+- ✅ **No revela información** - mismo mensaje si el email existe o no
+- ✅ **Emails de confirmación** - notifica cambios de contraseña
+- ✅ **Templates profesionales** - HTML personalizados con nombre de usuario
+
+### **📨 Emails Enviados**
+
+| Email | Cuándo | Contenido |
+|-------|--------|-----------|
+| **Reset Password** | Al solicitar reset | Token de 64 caracteres válido por 1 hora |
+| **Password Changed** | Después del reset | Confirmación con fecha y advertencia de seguridad |
+
+### **🚀 Flujo Completo - Paso a Paso**
+
+#### **Paso 1: Solicitar Reset de Contraseña**
+
+```bash
+POST /auth/forgot-password
+Content-Type: application/json
+
+{
+  "email": "user@example.com"
+}
+```
+
+**Respuesta:**
+```json
+{
+  "message": "If the email exists, a password reset link has been sent"
+}
+```
+
+**Lo que sucede internamente:**
+1. Se busca el usuario por email
+2. Se genera token aleatorio: `crypto.randomBytes(32).toString('hex')`
+3. Se guarda token y expiración (now + 1 hora) en base de datos
+4. Se envía email via Resend con template personalizado
+
+**Email recibido:**
+```
+De: onboarding@resend.dev
+Asunto: Reset your password - Emmott Asset Platform
+
+Hello [Nombre del Usuario],
+
+You requested to reset your password...
+
+[TOKEN DE 64 CARACTERES]
+
+Valid for 1 hour
+```
+
+---
+
+#### **Paso 2: Resetear Contraseña con Token**
+
+```bash
+POST /auth/reset-password
+Content-Type: application/json
+
+{
+  "token": "624572768b94efa1862043813a9df1ff30dba966acdc9975755032e48eba12a9",
+  "newPassword": "NuevaContraseña123!"
+}
+```
+
+**Respuesta:**
+```json
+{
+  "message": "Password has been reset successfully"
+}
+```
+
+**Lo que sucede internamente:**
+1. Se busca usuario por token
+2. Se verifica que el token no haya expirado
+3. Se hashea nueva contraseña con bcrypt
+4. Se actualiza contraseña en base de datos
+5. Se limpia token y expiración
+6. **Se envía email de confirmación** via Resend
+
+**Email de confirmación recibido:**
+```
+De: onboarding@resend.dev
+Asunto: Password Changed Successfully - Emmott Asset Platform
+
+Hello [Nombre del Usuario],
+
+✅ Your password has been successfully changed.
+
+Date: 2026-01-13 10:00:00
+Status: Successful
+
+⚠️ If you did NOT make this change, contact support immediately.
+```
+
+---
+
+#### **Paso 3: Login con Nueva Contraseña**
+
+```bash
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "NuevaContraseña123!"
+}
+```
+
+**Respuesta:**
+```json
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+  "user": {
+    "id": "uuid",
+    "name": "User Name",
+    "email": "user@example.com",
+    "role": "COMPANY_ADMIN"
+  }
+}
+```
+
+---
+
+### **⚙️ Configuración de Resend**
+
+#### **1. Obtener API Key**
+
+1. Crear cuenta en [resend.com](https://resend.com)
+2. Verificar dominio (o usar `onboarding@resend.dev` para testing)
+3. Generar API Key en Dashboard
+
+#### **2. Configurar Variables de Entorno**
+
+Agregar al archivo `.env`:
+
+```bash
+# Email (Resend)
+RESEND_API_KEY=re_your_api_key_here
+MAIL_FROM=onboarding@resend.dev
+```
+
+#### **3. Arquitectura del Módulo de Email**
+
+```
+src/mail/
+├── templates/
+│   ├── reset-password.ts          # Template HTML para reset
+│   ├── password-changed.ts        # Template HTML para confirmación
+│   └── welcome.ts                 # Template de bienvenida
+├── providers/
+│   └── resend.provider.ts         # Cliente de Resend con ConfigService
+├── mail.service.ts                # Lógica de envío de emails
+└── mail.module.ts                 # Módulo con ConfigModule importado
+```
+
+**Integración con ConfigService:**
+```typescript
+// ResendProvider usa ConfigService en lugar de process.env
+constructor(private readonly configService: ConfigService) {
+  const apiKey = this.configService.get<string>('RESEND_API_KEY');
+  this.client = new Resend(apiKey);
+  this.mailFrom = this.configService.get<string>('MAIL_FROM');
+}
+```
+
+---
+
+### **🎨 Templates de Email**
+
+Los templates están diseñados con:
+- ✅ **HTML responsivo** con estilos inline
+- ✅ **Personalización** con nombre del usuario
+- ✅ **Diseño profesional** con colores corporativos
+- ✅ **Claridad** en las instrucciones
+- ✅ **Advertencias de seguridad** visibles
+
+**Ejemplo de personalización:**
+```typescript
+// Antes
+export const resetPasswordTemplate = (token: string) => `
+  <h2>Password Reset Request</h2>
+  ...
+`;
+
+// Ahora
+export const resetPasswordTemplate = (name: string, token: string) => `
+  <h2>Hello ${name},</h2>
+  <p>You requested to reset your password...</p>
+  ...
+`;
+```
+
+---
+
+### **🧪 Probar el Sistema**
+
+**Opción 1: Colección de Postman**
+
+La colección `postman_collection.json` incluye:
+1. ✅ Registro de usuario
+2. ✅ Login
+3. ✅ Solicitar reset de contraseña
+4. ✅ Resetear con token
+5. ✅ Login con nueva contraseña
+
+**Opción 2: Swagger UI**
+
+1. Abrir `http://localhost:3000/api`
+2. Ir a sección "Authentication"
+3. Probar endpoints:
+   - `POST /auth/forgot-password`
+   - `POST /auth/reset-password`
+
+---
+
+### **📊 Diagrama de Flujo**
+
+```mermaid
+sequenceDiagram
+    participant U as Usuario
+    participant API as API Backend
+    participant DB as PostgreSQL
+    participant R as Resend
+
+    U->>API: POST /auth/forgot-password
+    API->>DB: Buscar usuario por email
+    DB-->>API: Usuario encontrado
+    API->>API: Generar token (32 bytes)
+    API->>DB: Guardar token + expiración
+    API->>R: Enviar email con token
+    R-->>U: Email recibido
+    API-->>U: "Email sent"
+
+    U->>API: POST /auth/reset-password
+    API->>DB: Validar token
+    DB-->>API: Token válido
+    API->>API: Hashear nueva contraseña
+    API->>DB: Actualizar password
+    API->>DB: Limpiar token
+    API->>R: Enviar confirmación
+    R-->>U: Email confirmación
+    API-->>U: "Password reset"
+
+    U->>API: POST /auth/login
+    API->>DB: Validar credenciales
+    DB-->>API: Credenciales OK
+    API-->>U: JWT Token
+```
 
 ---
 
@@ -579,6 +849,8 @@ curl -X POST http://localhost:3000/auth/login \
 | **Guards de Autenticación**     | ✅ Completo | JwtAuthGuard y RolesGuard (RBAC)                   |
 | **Decoradores Personalizados**  | ✅ Completo | @GetUser, @Roles para endpoints                    |
 | **Endpoints Protegidos**        | ✅ Completo | Users endpoints con autenticación y roles          |
+| **Forgot Password**             | ✅ Completo | Reset de contraseña con tokens seguros             |
+| **Emails Transaccionales**      | ✅ Completo | Resend integrado con templates profesionales       |
 | **Colección Postman**           | ✅ Completo | Testing completo con auto-save de JWT              |
 | **Flujo de Trabajo Git**        | ✅ Completo | Estrategia de branching basada en features         |
 

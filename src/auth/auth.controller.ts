@@ -4,6 +4,8 @@ import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { RegisterDto } from './dto/register.dto';
 import { AuthResponseDto } from './dto/auth-response.dto';
+import { ForgotPasswordDto } from './dto/forgot-password.dto';
+import { ResetPasswordDto } from './dto/reset-password.dto';
 
 @ApiTags('Authentication')
 @Controller('auth')
@@ -112,5 +114,73 @@ export class AuthController {
   })
   async login(@Body() loginDto: LoginDto): Promise<AuthResponseDto> {
     return this.authService.login(loginDto);
+  }
+
+  @Post('forgot-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({
+    summary: 'Request password reset',
+    description:
+      'Sends a password reset email with a token. For security, always returns success even if email does not exist.',
+  })
+  @ApiBody({ type: ForgotPasswordDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Password reset email sent (if email exists)',
+    schema: {
+      example: {
+        message: 'If the email exists, a password reset link has been sent',
+      },
+    },
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request - Invalid input data',
+    schema: {
+      example: {
+        statusCode: 400,
+        message: ['email must be an email'],
+        error: 'Bad Request',
+      },
+    },
+  })
+  async forgotPassword(
+    @Body() forgotPasswordDto: ForgotPasswordDto,
+  ): Promise<{ message: string }> {
+    return this.authService.forgotPassword(forgotPasswordDto);
+  }
+
+  @Post('reset-password')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({
+    summary: 'Reset password with token',
+    description:
+      'Resets user password using the token received via email. Token is valid for 1 hour.',
+  })
+  @ApiBody({ type: ResetPasswordDto })
+  @ApiResponse({
+    status: 200,
+    description: 'Password successfully reset',
+    schema: {
+      example: {
+        message: 'Password has been reset successfully',
+      },
+    },
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request - Invalid or expired token',
+    schema: {
+      example: {
+        statusCode: 400,
+        message: 'Invalid or expired reset token',
+        error: 'Bad Request',
+      },
+    },
+  })
+  async resetPassword(
+    @Body() resetPasswordDto: ResetPasswordDto,
+  ): Promise<{ message: string }> {
+    return this.authService.resetPassword(resetPasswordDto);
   }
 }
