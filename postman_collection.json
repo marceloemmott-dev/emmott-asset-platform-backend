@@ -227,6 +227,56 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "🏢 Companies Module",
+      "item": [
+        {
+          "name": "Create Company",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"legalName\": \"Empresa Demo SpA\",\n  \"tradeName\": \"DemoCorp\",\n  \"email\": \"contacto@democorp.cl\",\n  \"phone\": \"+56912345678\",\n  \"website\": \"https://democorp.cl\",\n  \"billing\": {\n    \"rut\": \"76.123.456-7\",\n    \"companyType\": \"SpA\",\n    \"businessActivity\": \"Desarrollo de Software\",\n    \"fiscalAddress\": \"Av. Providencia 123\",\n    \"commune\": \"Providencia\",\n    \"region\": \"RM\",\n    \"legalRepName\": \"Juan Perez\",\n    \"legalRepRut\": \"10.000.000-1\",\n    \"legalRepPosition\": \"CEO\",\n    \"industry\": \"technology\",\n    \"companySize\": \"small\"\n  },\n  \"subscription\": {\n    \"plan\": \"professional\",\n    \"billingFrequency\": \"monthly\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/companies",
+              "host": ["{{baseUrl}}"],
+              "path": ["companies"]
+            },
+            "description": "Create a new company with billing and subscription details (Super Admin only)."
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Companies",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/companies",
+              "host": ["{{baseUrl}}"],
+              "path": ["companies"]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "variable": [
