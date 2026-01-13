@@ -855,6 +855,56 @@ sequenceDiagram
 
 ---
 
+## 🏢 Módulo de Gestión de Empresas (Tenants)
+
+La plataforma implementa un modelo de datos robusto para gestionar empresas (tenants), separando la identidad legal y la suscripción.
+
+### **📐 Arquitectura del Módulo**
+
+El módulo `CompaniesModule` se ha diseñado siguiendo Principios SOLID para evitar dependencias circulares y mejorar la mantenibilidad.
+
+```mermaid
+classDiagram
+    class Company {
+        +UUID id
+        +String legalName
+        +String tradeName
+        +CompanyBilling billing
+        +CompanySubscription subscription
+    }
+    class CompanyBilling {
+        +UUID id
+        +String rut
+        +String industry
+        +String companySize
+    }
+    class CompanySubscription {
+        +UUID id
+        +String plan
+        +String status
+    }
+
+    Company "1" *-- "1" CompanyBilling : Has (Owner)
+    Company "1" *-- "1" CompanySubscription : Has (Owner)
+```
+
+### **🚀 Características Clave**
+
+- **Creación Atómica**: Uso de `DataSource.transaction` para asegurar que la Empresa, Billing y Suscripción se creen juntas o no se cree nada.
+- **Relaciones Unidireccionales**: La entidad `Company` es dueña de las relaciones. Esto simplifica la serialización y evita ciclos infinitos en Swagger.
+- **Validación de RUT**: Implementación del algoritmo Módulo 11 para validar RUTs chilenos reales.
+- **Enums Seguros**: Uso de valores `snake_case` (ej: `software_development`) en base de datos mapeados a descripciones legibles.
+
+### **📡 Endpoints Principales**
+
+La API divide la lógica en 3 controladores especializados:
+
+1.  **Core (`/companies`)**: CRUD básico de la entidad Empresa.
+2.  **Billing (`/companies/:id/billing`)**: Gestión de datos tributarios (SII), dirección fiscal y representante legal.
+3.  **Subscription (`/companies/:id/subscription`)**: Gestión del ciclo de vida SaaS (Upgrade, Downgrade, Cancel).
+
+---
+
 
 ## 📊 Estado del Proyecto
 
