@@ -22,6 +22,10 @@
 - [Acerca del Proyecto](#-acerca-del-proyecto)
 - [Stack Tecnológico](#-stack-tecnológico)
 - [Visión General de la Arquitectura](#-visión-general-de-la-arquitectura)
+- [Estructura del Proyecto](#estructura-actual-de-módulos)
+- [Uso de la API](#-uso-de-la-api)
+- [Sistema de Reset de Contraseña](#-sistema-de-reset-de-contraseña-con-resend)
+- [Configuración](#-configuración)
 - [Inicio Rápido](#-inicio-rápido)
 - [Estado del Proyecto](#-estado-del-proyecto)
 - [Flujo de Trabajo Git](#-flujo-de-trabajo-git)
@@ -257,6 +261,8 @@ src/
 │   ├── dto/
 │   │   ├── login.dto.ts            # DTO para login con validaciones
 │   │   ├── register.dto.ts         # DTO para registro de usuarios
+│   │   ├── forgot-password.dto.ts  # 📧 DTO para solicitar reset de contraseña
+│   │   ├── reset-password.dto.ts   # 🔑 DTO para resetear contraseña con token
 │   │   └── auth-response.dto.ts    # DTO de respuesta estandarizada
 │   ├── strategies/
 │   │   └── jwt.strategy.ts         # 🔑 Strategy de Passport para JWT
@@ -266,21 +272,32 @@ src/
 │   ├── decorators/
 │   │   ├── get-user.decorator.ts   # ✨ Obtener usuario autenticado
 │   │   └── roles.decorator.ts      # ✨ Marcar roles requeridos
-│   ├── auth.controller.ts          # 📡 Endpoints REST documentados
-│   ├── auth.service.ts             # ⚙️ Lógica de autenticación y JWT
+│   ├── auth.controller.ts          # 📡 Endpoints REST documentados (4 endpoints)
+│   ├── auth.service.ts             # ⚙️ Lógica de autenticación, JWT y reset
 │   └── auth.module.ts              # 📦 Configuración del módulo
 │
 ├── users/                          # 👥 Módulo de Gestión de Usuarios
 │   ├── dto/
 │   │   └── create-user.dto.ts      # DTO con validaciones y Swagger
 │   ├── entities/
-│   │   └── usuario.entity.ts       # 🗄️ Entidad TypeORM con UUID
+│   │   └── usuario.entity.ts       # 🗄️ Entidad TypeORM con UUID y reset tokens
 │   ├── users.controller.ts         # 📡 CRUD con endpoints protegidos
-│   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt
+│   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt + reset methods
 │   └── users.module.ts             # 📦 Configuración del módulo
 │
+├── mail/                           # 📧 Módulo de Emails Transaccionales (Resend)
+│   ├── templates/
+│   │   ├── reset-password.ts       # 🎨 Template HTML para reset (personalizado)
+│   │   ├── password-changed.ts     # ✅ Template HTML de confirmación
+│   │   └── welcome.ts              # 👋 Template de bienvenida
+│   ├── providers/
+│   │   └── resend.provider.ts      # 📮 Cliente Resend con ConfigService
+│   ├── mail.service.ts             # ⚙️ Lógica de envío de emails
+│   ├── mail.service.spec.ts        # 🧪 Tests del servicio de email
+│   └── mail.module.ts              # 📦 Módulo con ConfigModule integrado
+│
 ├── config/                         # ⚙️ Configuración
-│   └── database.config.ts          # Config de TypeORM y PostgreSQL
+│   └── database.config.ts          # Config de TypeORM y PostgreSQL (Neon)
 │
 ├── main.ts                         # 🚀 Bootstrap con Swagger y Validation
 └── app.module.ts                   # 🏗️ Módulo raíz de la aplicación
@@ -296,6 +313,8 @@ src/
 - ✅ **Entidades TypeORM** - Mapeo objeto-relacional con decoradores
 - ✅ **Configuración centralizada** - Variables de entorno con ConfigService
 - ✅ **Documentación automática** - Swagger genera docs desde decoradores
+- ✅ **Email Service** - Resend con templates HTML profesionales
+- ✅ **Seguridad robusta** - Tokens criptográficos, expiración automática
 
 ---
 
