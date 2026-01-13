@@ -8,6 +8,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MailService } from './mail/mail.service';
 import { MailModule } from './mail/mail.module';
+import { CompaniesModule } from './companies/companies.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { MailModule } from './mail/mail.module';
     UsersModule,
     AuthModule,
     MailModule,
+    CompaniesModule,
   ],
   controllers: [AppController],
   providers: [AppService, MailService],

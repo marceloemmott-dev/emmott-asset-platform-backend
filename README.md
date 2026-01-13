@@ -210,7 +210,7 @@ graph LR
         Users[Módulo Users]
     end
     
-    subgraph Business["Lógica de Negocio (Planificado)"]
+    subgraph Business["Lógica de Negocio"]
         Companies[Módulo Companies]
         Assets[Módulo Assets]
         Categories[Módulo Categories]
@@ -225,12 +225,12 @@ graph LR
     App --> AuthM
     App --> Users
     AuthM --> Users
-    App -.Futuro.-> Companies
+    App --> Companies
     App -.Futuro.-> Assets
     App -.Futuro.-> Categories
     
     Users --> DB
-    Companies -.-> DB
+    Companies --> DB
     Assets -.-> DB
     Categories -.-> DB
     
@@ -284,6 +284,13 @@ src/
 │   ├── users.controller.ts         # 📡 CRUD con endpoints protegidos
 │   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt + reset methods
 │   └── users.module.ts             # 📦 Configuración del módulo
+│
+├── companies/                      # 🏢 Módulo de Empresas (Tenants)
+│   ├── controllers/                # 🎮 Controladores (Core, Billing, Subscription)
+│   ├── services/                   # 🧠 Servicios de Negocio
+│   ├── entities/                   # 🗄️ Entidades (Company, Billing, Subscription)
+│   ├── enums/                      # 📋 Enums seguros (DB-friendly)
+│   └── companies.module.ts         # 📦 Definición del módulo
 │
 ├── mail/                           # 📧 Módulo de Emails Transaccionales (Resend)
 │   ├── templates/
@@ -848,6 +855,56 @@ sequenceDiagram
 
 ---
 
+## 🏢 Módulo de Gestión de Empresas (Tenants)
+
+La plataforma implementa un modelo de datos robusto para gestionar empresas (tenants), separando la identidad legal y la suscripción.
+
+### **📐 Arquitectura del Módulo**
+
+El módulo `CompaniesModule` se ha diseñado siguiendo Principios SOLID para evitar dependencias circulares y mejorar la mantenibilidad.
+
+```mermaid
+classDiagram
+    class Company {
+        +UUID id
+        +String legalName
+        +String tradeName
+        +CompanyBilling billing
+        +CompanySubscription subscription
+    }
+    class CompanyBilling {
+        +UUID id
+        +String rut
+        +String industry
+        +String companySize
+    }
+    class CompanySubscription {
+        +UUID id
+        +String plan
+        +String status
+    }
+
+    Company "1" *-- "1" CompanyBilling : Has (Owner)
+    Company "1" *-- "1" CompanySubscription : Has (Owner)
+```
+
+### **🚀 Características Clave**
+
+- **Creación Atómica**: Uso de `DataSource.transaction` para asegurar que la Empresa, Billing y Suscripción se creen juntas o no se cree nada.
+- **Relaciones Unidireccionales**: La entidad `Company` es dueña de las relaciones. Esto simplifica la serialización y evita ciclos infinitos en Swagger.
+- **Validación de RUT**: Implementación del algoritmo Módulo 11 para validar RUTs chilenos reales.
+- **Enums Seguros**: Uso de valores `snake_case` (ej: `software_development`) en base de datos mapeados a descripciones legibles.
+
+### **📡 Endpoints Principales**
+
+La API divide la lógica en 3 controladores especializados:
+
+1.  **Core (`/companies`)**: CRUD básico de la entidad Empresa.
+2.  **Billing (`/companies/:id/billing`)**: Gestión de datos tributarios (SII), dirección fiscal y representante legal.
+3.  **Subscription (`/companies/:id/subscription`)**: Gestión del ciclo de vida SaaS (Upgrade, Downgrade, Cancel).
+
+---
+
 
 ## 📊 Estado del Proyecto
 
@@ -872,10 +929,11 @@ sequenceDiagram
 | **Emails Transaccionales**      | ✅ Completo | Resend integrado con templates profesionales       |
 | **Colección Postman**           | ✅ Completo | Testing completo con auto-save de JWT              |
 | **Flujo de Trabajo Git**        | ✅ Completo | Estrategia de branching basada en features         |
+| **Módulo Empresas**             | ✅ Completo | Arquitectura Modular, CRUD, Billing & Subscriptions|
+| **Validación RUT Chileno**      | ✅ Completo | Algoritmo de verificación módulo 11                |
 
 ### **📋 Características Próximas**
 
-- 🏢 Modelo de dominio de Empresa
 - 📦 Módulos de Activos y Categorías  
 - ☁️ Despliegue en Azure
 - 📁 Integración con AWS S3
@@ -944,14 +1002,14 @@ gantt
     Estructura Módulo Auth  :done, p3, 2026-01-08, 2026-01-12
     
     section Fase 2: Autenticación
-    Persistencia Usuarios   :active, p4, 2026-01-12, 2026-01-18
-    Implementación JWT      :p5, 2026-01-18, 2026-01-25
-    Guards Basados en Roles :p6, 2026-01-25, 2026-02-01
+    Persistencia Usuarios   :done, p4, 2026-01-12, 2026-01-13
+    Implementación JWT      :done, p5, 2026-01-13, 2026-01-13
+    Guards Basados en Roles :done, p6, 2026-01-13, 2026-01-13
     
     section Fase 3: Características Core
-    Módulo Empresas         :p7, 2026-02-01, 2026-02-10
-    Módulo Activos          :p8, 2026-02-10, 2026-02-20
-    Gestión Categorías      :p9, 2026-02-20, 2026-02-28
+    Módulo Empresas         :done, p7, 2026-01-13, 2026-01-14
+    Módulo Activos          :active, p8, 2026-01-14, 2026-01-20
+    Gestión Categorías      :p9, 2026-01-20, 2026-01-25
     
     section Fase 4: Despliegue Nube
     Despliegue Azure        :p10, 2026-03-01, 2026-03-10
@@ -979,10 +1037,10 @@ gantt
 - [x] Endpoints protegidos con autenticación
 - [x] Documentación Swagger completa
 
-### **Fase 3: Características Core** 📋 _Siguiente_
+### **Fase 3: Características Core** ✅ _En Progreso_
 
-- [ ] Modelo de dominio de Empresa
-- [ ] Operaciones CRUD de Empresa
+- [x] Modelo de dominio de Empresa
+- [x] Operaciones CRUD de Empresa
 - [ ] Modelo de dominio de Activo
 - [ ] Gestión de Categorías
 - [ ] Operaciones CRUD de Activos
