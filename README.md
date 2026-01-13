@@ -1,8 +1,8 @@
 <div align="center">
 
-# ­ƒÅù´©Å Emmott Asset Platform ÔÇö Backend
+# 🏗️ Emmott Asset Platform — Backend
 
-### Plataforma SaaS Multi-Tenant para Gesti├│n de Activos Empresariales
+### Plataforma SaaS Multi-Tenant para Gestión de Activos Empresariales
 
 [![NestJS](https://img.shields.io/badge/NestJS-11.0-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)](https://nestjs.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -11,105 +11,105 @@
 
 **Un proyecto de portafolio backend profesional que demuestra arquitectura SaaS de nivel empresarial**
 
-[­ƒôû Documentaci├│n](#-tabla-de-contenidos) ÔÇó [­ƒÜÇ Inicio R├ípido](#-inicio-r├ípido) ÔÇó [­ƒÅù´©Å Arquitectura](#-visi├│n-general-de-la-arquitectura) ÔÇó [­ƒøú´©Å Roadmap](#-roadmap-del-proyecto)
+[📖 Documentación](#-tabla-de-contenidos) • [🚀 Inicio Rápido](#-inicio-rápido) • [🏗️ Arquitectura](#-visión-general-de-la-arquitectura) • [🛣️ Roadmap](#-roadmap-del-proyecto)
 
 ---
 
 </div>
 
-## ­ƒôï Tabla de Contenidos
+## 📋 Tabla de Contenidos
 
 - [Acerca del Proyecto](#-acerca-del-proyecto)
-- [Stack Tecnol├│gico](#-stack-tecnol├│gico)
-- [Visi├│n General de la Arquitectura](#-visi├│n-general-de-la-arquitectura)
-- [Estructura del Proyecto](#estructura-actual-de-m├│dulos)
+- [Stack Tecnológico](#-stack-tecnológico)
+- [Visión General de la Arquitectura](#-visión-general-de-la-arquitectura)
+- [Estructura del Proyecto](#estructura-actual-de-módulos)
 - [Uso de la API](#-uso-de-la-api)
-- [Sistema de Reset de Contrase├▒a](#-sistema-de-reset-de-contrase├▒a-con-resend)
-- [Configuraci├│n](#-configuraci├│n)
-- [Inicio R├ípido](#-inicio-r├ípido)
+- [Sistema de Reset de Contraseña](#-sistema-de-reset-de-contraseña-con-resend)
+- [Configuración](#-configuración)
+- [Inicio Rápido](#-inicio-rápido)
 - [Estado del Proyecto](#-estado-del-proyecto)
 - [Flujo de Trabajo Git](#-flujo-de-trabajo-git)
 - [Roadmap del Proyecto](#-roadmap-del-proyecto)
-- [Decisiones Arquitect├│nicas](#-decisiones-arquitect├│nicas)
-- [Con├®ctate Conmigo](#-con├®ctate-conmigo)
+- [Decisiones Arquitectónicas](#-decisiones-arquitectónicas)
+- [Conéctate Conmigo](#-conéctate-conmigo)
 
 ---
 
-## ­ƒÄ» Acerca del Proyecto
+## 🎯 Acerca del Proyecto
 
-**Emmott Asset Platform** es una plataforma multi-tenant orientada a empresas para la gesti├│n de compa├▒├¡as, usuarios y activos de manera escalable y segura.
+**Emmott Asset Platform** es una plataforma multi-tenant orientada a empresas para la gestión de compañías, usuarios y activos de manera escalable y segura.
 
 Este repositorio contiene la **API backend**, construida con **NestJS**, siguiendo **principios de arquitectura limpia** y un **flujo de trabajo basado en features**.
 
-### ­ƒÅó Acerca de Emmott Labs
+### 🏢 Acerca de Emmott Labs
 
-**Emmott Labs** es un contexto profesional de desarrollo de software creado para este proyecto. El objetivo es simular **pr├ícticas de desarrollo SaaS del mundo real**, incluyendo:
+**Emmott Labs** es un contexto profesional de desarrollo de software creado para este proyecto. El objetivo es simular **prácticas de desarrollo SaaS del mundo real**, incluyendo:
 
-- Ô£à Decisiones de arquitectura empresarial
-- Ô£à Flujos de trabajo Git profesionales
-- Ô£à Estrategias de integraci├│n multi-nube
-- Ô£à Patrones de c├│digo listos para producci├│n
+- ✅ Decisiones de arquitectura empresarial
+- ✅ Flujos de trabajo Git profesionales
+- ✅ Estrategias de integración multi-nube
+- ✅ Patrones de código listos para producción
 
-### ­ƒÆí Filosof├¡a del Proyecto
+### 💡 Filosofía del Proyecto
 
-Esto **no es una simple demo** ÔÇö es un **backend SaaS realista** construido para demostrar:
+Esto **no es una simple demo** — es un **backend SaaS realista** construido para demostrar:
 
-- ­ƒÄ» **Arquitectura multi-tenant** con aislamiento l├│gico de datos
-- ­ƒöÉ **Control de acceso basado en roles** (RBAC)
-- ­ƒÅù´©Å **Gesti├│n de configuraci├│n limpia** usando variables de entorno
-- Ôÿü´©Å **Infraestructura lista para la nube** (Azure + AWS)
-- ­ƒôÉ Principios de **dise├▒o orientado al dominio**
-- ­ƒº¬ Enfoque de **desarrollo dirigido por pruebas**
-- ­ƒôØ **Documentaci├│n exhaustiva**
+- 🎯 **Arquitectura multi-tenant** con aislamiento lógico de datos
+- 🔐 **Control de acceso basado en roles** (RBAC)
+- 🏗️ **Gestión de configuración limpia** usando variables de entorno
+- ☁️ **Infraestructura lista para la nube** (Azure + AWS)
+- 📐 Principios de **diseño orientado al dominio**
+- 🧪 Enfoque de **desarrollo dirigido por pruebas**
+- 📝 **Documentación exhaustiva**
 
-> **Prop├│sito:** Servir como un proyecto de portafolio backend s├│lido para entrevistas t├®cnicas y presentaciones profesionales.
+> **Propósito:** Servir como un proyecto de portafolio backend sólido para entrevistas técnicas y presentaciones profesionales.
 
 ---
 
-## ­ƒº▒ Stack Tecnol├│gico
+## 🧱 Stack Tecnológico
 
 ### **Framework Principal**
 
-- **[NestJS](https://nestjs.com/)** `v11.0` ÔÇö Framework progresivo de Node.js
-- **[TypeScript](https://www.typescriptlang.org/)** `v5.7` ÔÇö JavaScript con tipado seguro
+- **[NestJS](https://nestjs.com/)** `v11.0` — Framework progresivo de Node.js
+- **[TypeScript](https://www.typescriptlang.org/)** `v5.7` — JavaScript con tipado seguro
 
 ### **Base de Datos y ORM**
 
-- **[PostgreSQL](https://www.postgresql.org/)** ÔÇö Base de datos relacional (alojada en [Neon](https://neon.tech/))
-- **[TypeORM](https://typeorm.io/)** `v0.3` ÔÇö Mapeo Objeto-Relacional
+- **[PostgreSQL](https://www.postgresql.org/)** — Base de datos relacional (alojada en [Neon](https://neon.tech/))
+- **[TypeORM](https://typeorm.io/)** `v0.3` — Mapeo Objeto-Relacional
 
-### **Configuraci├│n y Entorno**
+### **Configuración y Entorno**
 
-- **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` ÔÇö Gesti├│n de configuraci├│n
-- **ConfigService** ÔÇö Manejo centralizado de variables de entorno
+- **[@nestjs/config](https://docs.nestjs.com/techniques/configuration)** `v4.0` — Gestión de configuración
+- **ConfigService** — Manejo centralizado de variables de entorno
 
-### **Autenticaci├│n y Seguridad** Ô£à
+### **Autenticación y Seguridad** ✅
 
-- **JWT** ÔÇö JSON Web Tokens para autenticaci├│n sin estado (implementado)
-- **bcrypt** ÔÇö Hash de contrase├▒as con salt (implementado)
-- **class-validator** ÔÇö Validaci├│n autom├ítica de DTOs
-- **class-transformer** ÔÇö Serializaci├│n y exclusi├│n de datos sensibles
-- **Passport.js** ÔÇö Middleware de autenticaci├│n _(planificado)_
+- **JWT** — JSON Web Tokens para autenticación sin estado (implementado)
+- **bcrypt** — Hash de contraseñas con salt (implementado)
+- **class-validator** — Validación automática de DTOs
+- **class-transformer** — Serialización y exclusión de datos sensibles
+- **Passport.js** — Middleware de autenticación _(planificado)_
 
-### **Servicios de Email** Ô£à
+### **Servicios de Email** ✅
 
-- **[Resend](https://resend.com/)** ÔÇö Servicio de env├¡o de emails transaccionales (implementado)
-  - Reset de contrase├▒as con tokens seguros
-  - Confirmaci├│n de cambio de contrase├▒a
-  - Templates HTML profesionales con personalizaci├│n
-  - Integraci├│n con ConfigService
+- **[Resend](https://resend.com/)** — Servicio de envío de emails transaccionales (implementado)
+  - Reset de contraseñas con tokens seguros
+  - Confirmación de cambio de contraseña
+  - Templates HTML profesionales con personalización
+  - Integración con ConfigService
 
 ### **Nube e Infraestructura** _(Planificado)_
 
-- **[Azure App Service](https://azure.microsoft.com/es-es/services/app-service/)** ÔÇö Despliegue del backend
-- **[AWS S3](https://aws.amazon.com/es/s3/)** ÔÇö Almacenamiento de medios
+- **[Azure App Service](https://azure.microsoft.com/es-es/services/app-service/)** — Despliegue del backend
+- **[AWS S3](https://aws.amazon.com/es/s3/)** — Almacenamiento de medios
 
 ### **Herramientas de Desarrollo**
 
-- **ESLint** `v9.18` ÔÇö An├ílisis de c├│digo
-- **Prettier** `v3.4` ÔÇö Formateo de c├│digo
-- **Jest** `v30.0` ÔÇö Framework de testing
-- **Git** ÔÇö Control de versiones con flujo de trabajo basado en features
+- **ESLint** `v9.18` — Análisis de código
+- **Prettier** `v3.4` — Formateo de código
+- **Jest** `v30.0` — Framework de testing
+- **Git** — Control de versiones con flujo de trabajo basado en features
 
 ### **Resumen de Dependencias**
 
@@ -128,17 +128,17 @@ Esto **no es una simple demo** ÔÇö es un **backend SaaS realista** construido
 
 ---
 
-## ­ƒÅù´©Å Visi├│n General de la Arquitectura
+## 🏗️ Visión General de la Arquitectura
 
 ### **Modelo SaaS Multi-Tenant**
 
 ```mermaid
 graph TB
-    subgraph Platform["­ƒÅó Emmott Asset Platform (Propietario de la Plataforma)"]
+    subgraph Platform["🏢 Emmott Asset Platform (Propietario de la Plataforma)"]
         API[API Backend NestJS]
     end
     
-    subgraph Database["­ƒùä´©Å Base de Datos PostgreSQL (Neon - DB ├Ünica)"]
+    subgraph Database["🗄️ Base de Datos PostgreSQL (Neon - DB Única)"]
         subgraph CompanyA["Datos Empresa A"]
             A1[Usuarios - companyId: A]
             A2[Activos - companyId: A]
@@ -164,9 +164,9 @@ graph TB
     style CompanyC fill:#9b59b6,stroke:#fff,stroke-width:1px
 ```
 
-**Concepto Clave:** Multi-tenancy l├│gico v├¡a `companyId` ÔÇö todas las empresas comparten la misma base de datos, pero los datos est├ín aislados a nivel de aplicaci├│n.
+**Concepto Clave:** Multi-tenancy lógico vía `companyId` — todas las empresas comparten la misma base de datos, pero los datos están aislados a nivel de aplicación.
 
-### **Flujo de Autenticaci├│n** _(Planificado)_
+### **Flujo de Autenticación** _(Planificado)_
 
 ```mermaid
 sequenceDiagram
@@ -180,7 +180,7 @@ sequenceDiagram
     API->>Auth: Validar credenciales
     Auth->>DB: Consultar usuario por email
     DB-->>Auth: Retornar datos del usuario
-    Auth->>Auth: Verificar contrase├▒a (bcrypt)
+    Auth->>Auth: Verificar contraseña (bcrypt)
     Auth->>JWT: Generar token JWT
     JWT-->>Auth: Retornar token firmado
     Auth-->>API: Retornar token + info usuario
@@ -190,30 +190,30 @@ sequenceDiagram
     
     User->>API: GET /assets (con JWT)
     API->>JWT: Validar token
-    JWT-->>API: Token v├ílido + datos usuario
+    JWT-->>API: Token válido + datos usuario
     API->>DB: Consultar activos (filtrado por companyId)
     DB-->>API: Retornar activos de la empresa
     API-->>User: 200 OK + datos de activos
 ```
 
-### **Arquitectura de M├│dulos**
+### **Arquitectura de Módulos**
 
 ```mermaid
 graph LR
-    subgraph Core["M├│dulos Core"]
-        App[M├│dulo App]
-        Config[M├│dulo Config]
+    subgraph Core["Módulos Core"]
+        App[Módulo App]
+        Config[Módulo Config]
     end
     
-    subgraph Auth["Autenticaci├│n"]
-        AuthM[M├│dulo Auth]
-        Users[M├│dulo Users]
+    subgraph Auth["Autenticación"]
+        AuthM[Módulo Auth]
+        Users[Módulo Users]
     end
     
-    subgraph Business["L├│gica de Negocio (Planificado)"]
-        Companies[M├│dulo Companies]
-        Assets[M├│dulo Assets]
-        Categories[M├│dulo Categories]
+    subgraph Business["Lógica de Negocio"]
+        Companies[Módulo Companies]
+        Assets[Módulo Assets]
+        Categories[Módulo Categories]
     end
     
     subgraph Infrastructure["Infraestructura"]
@@ -230,7 +230,7 @@ graph LR
     App -.Futuro.-> Categories
     
     Users --> DB
-    Companies -.-> DB
+    Companies --> DB
     Assets -.-> DB
     Categories -.-> DB
     
@@ -242,60 +242,49 @@ graph LR
     style Infrastructure fill:#4169E1,stroke:#fff,stroke-width:2px,color:#fff
 ```
 
-### **Decisiones Arquitect├│nicas Clave**
+### **Decisiones Arquitectónicas Clave**
 
-| Decisi├│n                          | Justificaci├│n                                                |
+| Decisión                          | Justificación                                                |
 | --------------------------------- | ------------------------------------------------------------ |
-| **Base de Datos ├Ünica**           | Modelo SaaS ÔÇö la plataforma es due├▒a de la infraestructura  |
-| **Multi-Tenancy L├│gico**          | Aislamiento de datos v├¡a columna `companyId`                |
-| **Roles de Plataforma como Enums** | Gesti├│n de roles simple, estable y expl├¡cita                |
+| **Base de Datos Única**           | Modelo SaaS — la plataforma es dueña de la infraestructura  |
+| **Multi-Tenancy Lógico**          | Aislamiento de datos vía columna `companyId`                |
+| **Roles de Plataforma como Enums** | Gestión de roles simple, estable y explícita                |
 | **SSL Habilitado**                | Requerido por Neon, asegura conexiones seguras              |
-| **`synchronize: false`**          | Seguro por defecto ÔÇö migraciones manuales                   |
-| **Sin Docker**                    | Enfoque en arquitectura, no en contenedorizaci├│n            |
+| **`synchronize: false`**          | Seguro por defecto — migraciones manuales                   |
+| **Sin Docker**                    | Enfoque en arquitectura, no en contenedorización            |
 
-### **Estructura Actual de M├│dulos**
+### **Estructura Actual de Módulos**
 
 ```
 src/
-Ôö£ÔöÇÔöÇ auth/                           # ­ƒöÉ M├│dulo de Autenticaci├│n JWT Completo
-Ôöé   Ôö£ÔöÇÔöÇ dto/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ login.dto.ts            # DTO para login con validaciones
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ register.dto.ts         # DTO para registro de usuarios
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ forgot-password.dto.ts  # ­ƒôº DTO para solicitar reset de contrase├▒a
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ reset-password.dto.ts   # ­ƒöæ DTO para resetear contrase├▒a con token
-Ôöé   Ôöé   ÔööÔöÇÔöÇ auth-response.dto.ts    # DTO de respuesta estandarizada
-Ôöé   Ôö£ÔöÇÔöÇ strategies/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ jwt.strategy.ts         # ­ƒöæ Strategy de Passport para JWT
-Ôöé   Ôö£ÔöÇÔöÇ guards/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ jwt-auth.guard.ts       # ­ƒøí´©Å Guard de autenticaci├│n JWT
-Ôöé   Ôöé   ÔööÔöÇÔöÇ roles.guard.ts          # ­ƒøí´©Å Guard de roles (RBAC)
-Ôöé   Ôö£ÔöÇÔöÇ decorators/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ get-user.decorator.ts   # Ô£¿ Obtener usuario autenticado
-Ôöé   Ôöé   ÔööÔöÇÔöÇ roles.decorator.ts      # Ô£¿ Marcar roles requeridos
-Ôöé   Ôö£ÔöÇÔöÇ auth.controller.ts          # ­ƒôí Endpoints REST documentados (4 endpoints)
-Ôöé   Ôö£ÔöÇÔöÇ auth.service.ts             # ÔÜÖ´©Å L├│gica de autenticaci├│n, JWT y reset
-Ôöé   ÔööÔöÇÔöÇ auth.module.ts              # ­ƒôª Configuraci├│n del m├│dulo
-Ôöé
-Ôö£ÔöÇÔöÇ users/                          # ­ƒæÑ M├│dulo de Gesti├│n de Usuarios
-Ôöé   Ôö£ÔöÇÔöÇ dto/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ create-user.dto.ts      # DTO con validaciones y Swagger
-Ôöé   Ôö£ÔöÇÔöÇ entities/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ usuario.entity.ts       # ­ƒùä´©Å Entidad TypeORM con UUID y reset tokens
-Ôöé   Ôö£ÔöÇÔöÇ users.controller.ts         # ­ƒôí CRUD con endpoints protegidos
-Ôöé   Ôö£ÔöÇÔöÇ users.service.ts            # ÔÜÖ´©Å L├│gica de negocio + bcrypt + reset methods
-Ôöé   ÔööÔöÇÔöÇ users.module.ts             # ­ƒôª Configuraci├│n del m├│dulo
-Ôöé
-Ôö£ÔöÇÔöÇ mail/                           # ­ƒôº M├│dulo de Emails Transaccionales (Resend)
-Ôöé   Ôö£ÔöÇÔöÇ templates/
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ reset-password.ts       # ­ƒÄ¿ Template HTML para reset (personalizado)
-Ôöé   Ôöé   Ôö£ÔöÇÔöÇ password-changed.ts     # Ô£à Template HTML de confirmaci├│n
-Ôöé   Ôöé   ÔööÔöÇÔöÇ welcome.ts              # ­ƒæï Template de bienvenida
-Ôöé   Ôö£ÔöÇÔöÇ providers/
-Ôöé   Ôöé   ÔööÔöÇÔöÇ resend.provider.ts      # ­ƒô« Cliente Resend con ConfigService
-Ôöé   Ôö£ÔöÇÔöÇ mail.service.ts             # ÔÜÖ´©Å L├│gica de env├¡o de emails
-Ôöé   Ôö£ÔöÇÔöÇ mail.service.spec.ts        # ­ƒº¬ Tests del servicio de email
-Ôöé   ÔööÔöÇÔöÇ mail.module.ts              # ­ƒôª M├│dulo con ConfigModule integrado
-Ôöé
+├── auth/                           # 🔐 Módulo de Autenticación JWT Completo
+│   ├── dto/
+│   │   ├── login.dto.ts            # DTO para login con validaciones
+│   │   ├── register.dto.ts         # DTO para registro de usuarios
+│   │   ├── forgot-password.dto.ts  # 📧 DTO para solicitar reset de contraseña
+│   │   ├── reset-password.dto.ts   # 🔑 DTO para resetear contraseña con token
+│   │   └── auth-response.dto.ts    # DTO de respuesta estandarizada
+│   ├── strategies/
+│   │   └── jwt.strategy.ts         # 🔑 Strategy de Passport para JWT
+│   ├── guards/
+│   │   ├── jwt-auth.guard.ts       # 🛡️ Guard de autenticación JWT
+│   │   └── roles.guard.ts          # 🛡️ Guard de roles (RBAC)
+│   ├── decorators/
+│   │   ├── get-user.decorator.ts   # ✨ Obtener usuario autenticado
+│   │   └── roles.decorator.ts      # ✨ Marcar roles requeridos
+│   ├── auth.controller.ts          # 📡 Endpoints REST documentados (4 endpoints)
+│   ├── auth.service.ts             # ⚙️ Lógica de autenticación, JWT y reset
+│   └── auth.module.ts              # 📦 Configuración del módulo
+│
+├── users/                          # 👥 Módulo de Gestión de Usuarios
+│   ├── dto/
+│   │   └── create-user.dto.ts      # DTO con validaciones y Swagger
+│   ├── entities/
+│   │   └── usuario.entity.ts       # 🗄️ Entidad TypeORM con UUID y reset tokens
+│   ├── users.controller.ts         # 📡 CRUD con endpoints protegidos
+│   ├── users.service.ts            # ⚙️ Lógica de negocio + bcrypt + reset methods
+│   └── users.module.ts             # 📦 Configuración del módulo
+│
 ├── companies/                      # 🏢 Módulo de Empresas (Tenants)
 │   ├── controllers/                # 🎮 Controladores (Core, Billing, Subscription)
 │   ├── services/                   # 🧠 Servicios de Negocio
@@ -303,33 +292,44 @@ src/
 │   ├── enums/                      # 📋 Enums seguros (DB-friendly)
 │   └── companies.module.ts         # 📦 Definición del módulo
 │
-Ôö£ÔöÇÔöÇ config/                         # ÔÜÖ´©Å Configuraci├│n
-Ôöé   ÔööÔöÇÔöÇ database.config.ts          # Config de TypeORM y PostgreSQL (Neon)
-Ôöé
-Ôö£ÔöÇÔöÇ main.ts                         # ­ƒÜÇ Bootstrap con Swagger y Validation
-ÔööÔöÇÔöÇ app.module.ts                   # ­ƒÅù´©Å M├│dulo ra├¡z de la aplicaci├│n
+├── mail/                           # 📧 Módulo de Emails Transaccionales (Resend)
+│   ├── templates/
+│   │   ├── reset-password.ts       # 🎨 Template HTML para reset (personalizado)
+│   │   ├── password-changed.ts     # ✅ Template HTML de confirmación
+│   │   └── welcome.ts              # 👋 Template de bienvenida
+│   ├── providers/
+│   │   └── resend.provider.ts      # 📮 Cliente Resend con ConfigService
+│   ├── mail.service.ts             # ⚙️ Lógica de envío de emails
+│   ├── mail.service.spec.ts        # 🧪 Tests del servicio de email
+│   └── mail.module.ts              # 📦 Módulo con ConfigModule integrado
+│
+├── config/                         # ⚙️ Configuración
+│   └── database.config.ts          # Config de TypeORM y PostgreSQL (Neon)
+│
+├── main.ts                         # 🚀 Bootstrap con Swagger y Validation
+└── app.module.ts                   # 🏗️ Módulo raíz de la aplicación
 ```
 
-**Caracter├¡sticas Destacadas de la Arquitectura:**
+**Características Destacadas de la Arquitectura:**
 
-- Ô£à **Separaci├│n de responsabilidades** - Cada capa tiene un prop├│sito espec├¡fico
-- Ô£à **DTOs con validaci├│n** - class-validator y class-transformer integrados
-- Ô£à **Guards modulares** - Autenticaci├│n y autorizaci├│n desacopladas
-- Ô£à **Strategy Pattern** - JWT validation con Passport.js
-- Ô£à **Decoradores personalizados** - Simplifica la l├│gica en controllers
-- Ô£à **Entidades TypeORM** - Mapeo objeto-relacional con decoradores
-- Ô£à **Configuraci├│n centralizada** - Variables de entorno con ConfigService
-- Ô£à **Documentaci├│n autom├ítica** - Swagger genera docs desde decoradores
-- Ô£à **Email Service** - Resend con templates HTML profesionales
-- Ô£à **Seguridad robusta** - Tokens criptogr├íficos, expiraci├│n autom├ítica
+- ✅ **Separación de responsabilidades** - Cada capa tiene un propósito específico
+- ✅ **DTOs con validación** - class-validator y class-transformer integrados
+- ✅ **Guards modulares** - Autenticación y autorización desacopladas
+- ✅ **Strategy Pattern** - JWT validation con Passport.js
+- ✅ **Decoradores personalizados** - Simplifica la lógica en controllers
+- ✅ **Entidades TypeORM** - Mapeo objeto-relacional con decoradores
+- ✅ **Configuración centralizada** - Variables de entorno con ConfigService
+- ✅ **Documentación automática** - Swagger genera docs desde decoradores
+- ✅ **Email Service** - Resend con templates HTML profesionales
+- ✅ **Seguridad robusta** - Tokens criptográficos, expiración automática
 
 ---
 
-## ­ƒÜÇ Inicio R├ípido
+## 🚀 Inicio Rápido
 
 ### **Prerrequisitos**
 
-Antes de comenzar, aseg├║rate de tener instalado lo siguiente:
+Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 - **Node.js** `v18+` ([Descargar](https://nodejs.org/))
 - **npm** `v9+` (viene con Node.js)
@@ -353,47 +353,47 @@ cd emmott-asset-platform-backend
 npm install
 ```
 
-Esto instalar├í todos los paquetes requeridos definidos en `package.json`.
+Esto instalará todos los paquetes requeridos definidos en `package.json`.
 
 ---
 
 ### **Paso 3: Configurar Variables de Entorno**
 
-Crea un archivo `.env` en el directorio ra├¡z copiando el ejemplo:
+Crea un archivo `.env` en el directorio raíz copiando el ejemplo:
 
 ```bash
 cp .env.example .env
 ```
 
-Luego edita `.env` con tu configuraci├│n real:
+Luego edita `.env` con tu configuración real:
 
 ```env
-# Configuraci├│n de la Aplicaci├│n
+# Configuración de la Aplicación
 APP_NAME=Emmott Asset Platform
 NODE_ENV=development
 PORT=3000
 
-# Configuraci├│n de Base de Datos (Neon PostgreSQL)
-DATABASE_URL=postgresql://usuario:contrase├▒a@host.neon.tech/database?sslmode=require
+# Configuración de Base de Datos (Neon PostgreSQL)
+DATABASE_URL=postgresql://usuario:contraseña@host.neon.tech/database?sslmode=require
 ```
 
-**C├│mo obtener tu DATABASE_URL de Neon:**
+**Cómo obtener tu DATABASE_URL de Neon:**
 
 1. Ve a la [Consola de Neon](https://console.neon.tech/)
 2. Crea un nuevo proyecto (o usa uno existente)
-3. Navega a **Dashboard** ÔåÆ **Connection Details**
+3. Navega a **Dashboard** → **Connection Details**
 4. Copia el **Connection String** (incluye SSL por defecto)
-5. P├®galo en tu archivo `.env`
+5. Pégalo en tu archivo `.env`
 
 **Ejemplo:**
 
 ```env
-DATABASE_URL=postgresql://miusuario:micontrase├▒a@ep-cool-name-123456.us-east-2.aws.neon.tech/midb?sslmode=require
+DATABASE_URL=postgresql://miusuario:micontraseña@ep-cool-name-123456.us-east-2.aws.neon.tech/midb?sslmode=require
 ```
 
 ---
 
-### **Paso 4: Ejecutar la Aplicaci├│n**
+### **Paso 4: Ejecutar la Aplicación**
 
 #### **Modo Desarrollo** (con hot-reload)
 
@@ -401,9 +401,9 @@ DATABASE_URL=postgresql://miusuario:micontrase├▒a@ep-cool-name-123456.us-eas
 npm run start:dev
 ```
 
-El servidor se iniciar├í en `http://localhost:3000`
+El servidor se iniciará en `http://localhost:3000`
 
-#### **Modo Producci├│n**
+#### **Modo Producción**
 
 ```bash
 npm run build
@@ -412,30 +412,30 @@ npm run start:prod
 
 ---
 
-### **Paso 5: Verificar Conexi├│n a la Base de Datos**
+### **Paso 5: Verificar Conexión a la Base de Datos**
 
-Una vez que la aplicaci├│n se inicie, deber├¡as ver:
+Una vez que la aplicación se inicie, deberías ver:
 
 ```
 [Nest] 12345  - 12/01/2026, 13:00:00     LOG [TypeOrmModule] Database connection established
 [Nest] 12345  - 12/01/2026, 13:00:00     LOG [NestApplication] Nest application successfully started
 ```
 
-Ô£à **┬íLa conexi├│n a la base de datos est├í verificada y funcionando!**
+✅ **¡La conexión a la base de datos está verificada y funcionando!**
 
 ---
 
 ### **Scripts Disponibles**
 
-| Comando                 | Descripci├│n                                    |
+| Comando                 | Descripción                                    |
 | ----------------------- | ---------------------------------------------- |
-| `npm run start`         | Iniciar la aplicaci├│n                          |
+| `npm run start`         | Iniciar la aplicación                          |
 | `npm run start:dev`     | Iniciar en modo desarrollo (watch mode)        |
 | `npm run start:debug`   | Iniciar en modo debug                          |
-| `npm run start:prod`    | Iniciar en modo producci├│n                     |
-| `npm run build`         | Construir la aplicaci├│n                        |
-| `npm run format`        | Formatear c├│digo con Prettier                  |
-| `npm run lint`          | Analizar c├│digo con ESLint                     |
+| `npm run start:prod`    | Iniciar en modo producción                     |
+| `npm run build`         | Construir la aplicación                        |
+| `npm run format`        | Formatear código con Prettier                  |
+| `npm run lint`          | Analizar código con ESLint                     |
 | `npm run test`          | Ejecutar pruebas unitarias                     |
 | `npm run test:e2e`      | Ejecutar pruebas end-to-end                    |
 | `npm run test:cov`      | Ejecutar pruebas con cobertura                 |
@@ -443,19 +443,19 @@ Una vez que la aplicaci├│n se inicie, deber├¡as ver:
 
 ---
 
-## ­ƒöî Uso de la API
+## 🔌 Uso de la API
 
-### **Documentaci├│n Interactiva**
+### **Documentación Interactiva**
 
-La API cuenta con documentaci├│n Swagger interactiva disponible en:
+La API cuenta con documentación Swagger interactiva disponible en:
 
 ```
 http://localhost:3000/api
 ```
 
-### **Colecci├│n de Postman**
+### **Colección de Postman**
 
-Importa la colecci├│n `postman_collection.json` en Postman para probar todos los endpoints f├ícilmente.
+Importa la colección `postman_collection.json` en Postman para probar todos los endpoints fácilmente.
 
 ### **Endpoints Disponibles**
 
@@ -466,7 +466,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 **Request:**
 ```json
 {
-  "name": "Juan P├®rez",
+  "name": "Juan Pérez",
   "email": "juan.perez@example.com",
   "password": "MiPassword123!",
   "role": "COMPANY_ADMIN"
@@ -479,14 +479,14 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "Juan P├®rez",
+    "name": "Juan Pérez",
     "email": "juan.perez@example.com",
     "role": "COMPANY_ADMIN"
   }
 }
 ```
 
-#### **2. Iniciar Sesi├│n**
+#### **2. Iniciar Sesión**
 
 **Endpoint:** `POST /auth/login`
 
@@ -504,7 +504,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
   "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
   "user": {
     "id": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "Juan P├®rez",
+    "name": "Juan Pérez",
     "email": "juan.perez@example.com",
     "role": "COMPANY_ADMIN"
   }
@@ -518,7 +518,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 **Request:**
 ```json
 {
-  "name": "Mar├¡a Garc├¡a",
+  "name": "María García",
   "email": "maria.garcia@example.com",
   "password": "SecurePass456!",
   "role": "COMPANY_ADMIN"
@@ -529,7 +529,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 ```json
 {
   "id": "660f9511-f3ac-52e5-b827-557766551111",
-  "name": "Mar├¡a Garc├¡a",
+  "name": "María García",
   "email": "maria.garcia@example.com",
   "role": "COMPANY_ADMIN",
   "createdAt": "2026-01-12T19:30:00.000Z",
@@ -537,7 +537,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 }
 ```
 
-**Nota:** La contrase├▒a nunca se devuelve en las respuestas (protegida con `@Exclude()`).
+**Nota:** La contraseña nunca se devuelve en las respuestas (protegida con `@Exclude()`).
 
 #### **4. Buscar Usuario por Email**
 
@@ -549,7 +549,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 ```json
 {
   "id": "550e8400-e29b-41d4-a716-446655440000",
-  "name": "Juan P├®rez",
+  "name": "Juan Pérez",
   "email": "juan.perez@example.com",
   "role": "COMPANY_ADMIN",
   "createdAt": "2026-01-12T19:25:00.000Z",
@@ -564,7 +564,7 @@ Importa la colecci├│n `postman_collection.json` en Postman para probar todos
 curl -X POST http://localhost:3000/auth/register \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Juan P├®rez",
+    "name": "Juan Pérez",
     "email": "juan.perez@example.com",
     "password": "MiPassword123!",
     "role": "COMPANY_ADMIN"
@@ -581,42 +581,42 @@ curl -X POST http://localhost:3000/auth/login \
   }'
 ```
 
-### **C├│digos de Estado HTTP**
+### **Códigos de Estado HTTP**
 
-| C├│digo | Descripci├│n                          |
+| Código | Descripción                          |
 | ------ | ------------------------------------ |
 | 200    | OK - Solicitud exitosa               |
 | 201    | Created - Recurso creado exitosamente |
 | 400    | Bad Request - Error en datos de entrada |
-| 401    | Unauthorized - Credenciales inv├ílidas |
+| 401    | Unauthorized - Credenciales inválidas |
 | 409    | Conflict - El usuario ya existe       |
 | 500    | Internal Server Error                 |
 
 ---
 
-## ­ƒôº Sistema de Reset de Contrase├▒a con Resend
+## 📧 Sistema de Reset de Contraseña con Resend
 
-El sistema implementa un flujo completo y seguro de recuperaci├│n de contrase├▒as usando [Resend](https://resend.com/) para el env├¡o de emails transaccionales.
+El sistema implementa un flujo completo y seguro de recuperación de contraseñas usando [Resend](https://resend.com/) para el envío de emails transaccionales.
 
-### **­ƒöÉ Caracter├¡sticas de Seguridad**
+### **🔐 Características de Seguridad**
 
-- Ô£à **Tokens aleatorios** de 32 bytes generados con `crypto.randomBytes()`
-- Ô£à **Expiraci├│n autom├ítica** de tokens en 1 hora
-- Ô£à **Tokens de un solo uso** - se limpian despu├®s de ser utilizados
-- Ô£à **No revela informaci├│n** - mismo mensaje si el email existe o no
-- Ô£à **Emails de confirmaci├│n** - notifica cambios de contrase├▒a
-- Ô£à **Templates profesionales** - HTML personalizados con nombre de usuario
+- ✅ **Tokens aleatorios** de 32 bytes generados con `crypto.randomBytes()`
+- ✅ **Expiración automática** de tokens en 1 hora
+- ✅ **Tokens de un solo uso** - se limpian después de ser utilizados
+- ✅ **No revela información** - mismo mensaje si el email existe o no
+- ✅ **Emails de confirmación** - notifica cambios de contraseña
+- ✅ **Templates profesionales** - HTML personalizados con nombre de usuario
 
-### **­ƒô¿ Emails Enviados**
+### **📨 Emails Enviados**
 
-| Email | Cu├índo | Contenido |
+| Email | Cuándo | Contenido |
 |-------|--------|-----------|
-| **Reset Password** | Al solicitar reset | Token de 64 caracteres v├ílido por 1 hora |
-| **Password Changed** | Despu├®s del reset | Confirmaci├│n con fecha y advertencia de seguridad |
+| **Reset Password** | Al solicitar reset | Token de 64 caracteres válido por 1 hora |
+| **Password Changed** | Después del reset | Confirmación con fecha y advertencia de seguridad |
 
-### **­ƒÜÇ Flujo Completo - Paso a Paso**
+### **🚀 Flujo Completo - Paso a Paso**
 
-#### **Paso 1: Solicitar Reset de Contrase├▒a**
+#### **Paso 1: Solicitar Reset de Contraseña**
 
 ```bash
 POST /auth/forgot-password
@@ -637,8 +637,8 @@ Content-Type: application/json
 **Lo que sucede internamente:**
 1. Se busca el usuario por email
 2. Se genera token aleatorio: `crypto.randomBytes(32).toString('hex')`
-3. Se guarda token y expiraci├│n (now + 1 hora) en base de datos
-4. Se env├¡a email via Resend con template personalizado
+3. Se guarda token y expiración (now + 1 hora) en base de datos
+4. Se envía email via Resend con template personalizado
 
 **Email recibido:**
 ```
@@ -656,7 +656,7 @@ Valid for 1 hour
 
 ---
 
-#### **Paso 2: Resetear Contrase├▒a con Token**
+#### **Paso 2: Resetear Contraseña con Token**
 
 ```bash
 POST /auth/reset-password
@@ -664,7 +664,7 @@ Content-Type: application/json
 
 {
   "token": "624572768b94efa1862043813a9df1ff30dba966acdc9975755032e48eba12a9",
-  "newPassword": "NuevaContrase├▒a123!"
+  "newPassword": "NuevaContraseña123!"
 }
 ```
 
@@ -678,29 +678,29 @@ Content-Type: application/json
 **Lo que sucede internamente:**
 1. Se busca usuario por token
 2. Se verifica que el token no haya expirado
-3. Se hashea nueva contrase├▒a con bcrypt
-4. Se actualiza contrase├▒a en base de datos
-5. Se limpia token y expiraci├│n
-6. **Se env├¡a email de confirmaci├│n** via Resend
+3. Se hashea nueva contraseña con bcrypt
+4. Se actualiza contraseña en base de datos
+5. Se limpia token y expiración
+6. **Se envía email de confirmación** via Resend
 
-**Email de confirmaci├│n recibido:**
+**Email de confirmación recibido:**
 ```
 De: onboarding@resend.dev
 Asunto: Password Changed Successfully - Emmott Asset Platform
 
 Hello [Nombre del Usuario],
 
-Ô£à Your password has been successfully changed.
+✅ Your password has been successfully changed.
 
 Date: 2026-01-13 10:00:00
 Status: Successful
 
-ÔÜá´©Å If you did NOT make this change, contact support immediately.
+⚠️ If you did NOT make this change, contact support immediately.
 ```
 
 ---
 
-#### **Paso 3: Login con Nueva Contrase├▒a**
+#### **Paso 3: Login con Nueva Contraseña**
 
 ```bash
 POST /auth/login
@@ -708,7 +708,7 @@ Content-Type: application/json
 
 {
   "email": "user@example.com",
-  "password": "NuevaContrase├▒a123!"
+  "password": "NuevaContraseña123!"
 }
 ```
 
@@ -727,7 +727,7 @@ Content-Type: application/json
 
 ---
 
-### **ÔÜÖ´©Å Configuraci├│n de Resend**
+### **⚙️ Configuración de Resend**
 
 #### **1. Obtener API Key**
 
@@ -745,21 +745,21 @@ RESEND_API_KEY=re_your_api_key_here
 MAIL_FROM=onboarding@resend.dev
 ```
 
-#### **3. Arquitectura del M├│dulo de Email**
+#### **3. Arquitectura del Módulo de Email**
 
 ```
 src/mail/
-Ôö£ÔöÇÔöÇ templates/
-Ôöé   Ôö£ÔöÇÔöÇ reset-password.ts          # Template HTML para reset
-Ôöé   Ôö£ÔöÇÔöÇ password-changed.ts        # Template HTML para confirmaci├│n
-Ôöé   ÔööÔöÇÔöÇ welcome.ts                 # Template de bienvenida
-Ôö£ÔöÇÔöÇ providers/
-Ôöé   ÔööÔöÇÔöÇ resend.provider.ts         # Cliente de Resend con ConfigService
-Ôö£ÔöÇÔöÇ mail.service.ts                # L├│gica de env├¡o de emails
-ÔööÔöÇÔöÇ mail.module.ts                 # M├│dulo con ConfigModule importado
+├── templates/
+│   ├── reset-password.ts          # Template HTML para reset
+│   ├── password-changed.ts        # Template HTML para confirmación
+│   └── welcome.ts                 # Template de bienvenida
+├── providers/
+│   └── resend.provider.ts         # Cliente de Resend con ConfigService
+├── mail.service.ts                # Lógica de envío de emails
+└── mail.module.ts                 # Módulo con ConfigModule importado
 ```
 
-**Integraci├│n con ConfigService:**
+**Integración con ConfigService:**
 ```typescript
 // ResendProvider usa ConfigService en lugar de process.env
 constructor(private readonly configService: ConfigService) {
@@ -771,16 +771,16 @@ constructor(private readonly configService: ConfigService) {
 
 ---
 
-### **­ƒÄ¿ Templates de Email**
+### **🎨 Templates de Email**
 
-Los templates est├ín dise├▒ados con:
-- Ô£à **HTML responsivo** con estilos inline
-- Ô£à **Personalizaci├│n** con nombre del usuario
-- Ô£à **Dise├▒o profesional** con colores corporativos
-- Ô£à **Claridad** en las instrucciones
-- Ô£à **Advertencias de seguridad** visibles
+Los templates están diseñados con:
+- ✅ **HTML responsivo** con estilos inline
+- ✅ **Personalización** con nombre del usuario
+- ✅ **Diseño profesional** con colores corporativos
+- ✅ **Claridad** en las instrucciones
+- ✅ **Advertencias de seguridad** visibles
 
-**Ejemplo de personalizaci├│n:**
+**Ejemplo de personalización:**
 ```typescript
 // Antes
 export const resetPasswordTemplate = (token: string) => `
@@ -798,28 +798,28 @@ export const resetPasswordTemplate = (name: string, token: string) => `
 
 ---
 
-### **­ƒº¬ Probar el Sistema**
+### **🧪 Probar el Sistema**
 
-**Opci├│n 1: Colecci├│n de Postman**
+**Opción 1: Colección de Postman**
 
-La colecci├│n `postman_collection.json` incluye:
-1. Ô£à Registro de usuario
-2. Ô£à Login
-3. Ô£à Solicitar reset de contrase├▒a
-4. Ô£à Resetear con token
-5. Ô£à Login con nueva contrase├▒a
+La colección `postman_collection.json` incluye:
+1. ✅ Registro de usuario
+2. ✅ Login
+3. ✅ Solicitar reset de contraseña
+4. ✅ Resetear con token
+5. ✅ Login con nueva contraseña
 
-**Opci├│n 2: Swagger UI**
+**Opción 2: Swagger UI**
 
 1. Abrir `http://localhost:3000/api`
-2. Ir a secci├│n "Authentication"
+2. Ir a sección "Authentication"
 3. Probar endpoints:
    - `POST /auth/forgot-password`
    - `POST /auth/reset-password`
 
 ---
 
-### **­ƒôè Diagrama de Flujo**
+### **📊 Diagrama de Flujo**
 
 ```mermaid
 sequenceDiagram
@@ -832,19 +832,19 @@ sequenceDiagram
     API->>DB: Buscar usuario por email
     DB-->>API: Usuario encontrado
     API->>API: Generar token (32 bytes)
-    API->>DB: Guardar token + expiraci├│n
+    API->>DB: Guardar token + expiración
     API->>R: Enviar email con token
     R-->>U: Email recibido
     API-->>U: "Email sent"
 
     U->>API: POST /auth/reset-password
     API->>DB: Validar token
-    DB-->>API: Token v├ílido
-    API->>API: Hashear nueva contrase├▒a
+    DB-->>API: Token válido
+    API->>API: Hashear nueva contraseña
     API->>DB: Actualizar password
     API->>DB: Limpiar token
-    API->>R: Enviar confirmaci├│n
-    R-->>U: Email confirmaci├│n
+    API->>R: Enviar confirmación
+    R-->>U: Email confirmación
     API-->>U: "Password reset"
 
     U->>API: POST /auth/login
@@ -856,61 +856,62 @@ sequenceDiagram
 ---
 
 
-## ­ƒôè Estado del Proyecto
+## 📊 Estado del Proyecto
 
-### **Ô£à Caracter├¡sticas Completadas**
+### **✅ Características Completadas**
 
-| Caracter├¡stica                  | Estado      | Descripci├│n                                        |
+| Característica                  | Estado      | Descripción                                        |
 | ------------------------------- | ----------- | -------------------------------------------------- |
-| **Configuraci├│n del Proyecto**  | Ô£à Completo | Proyecto NestJS inicializado con TypeScript        |
-| **Conexi├│n a Base de Datos**    | Ô£à Completo | PostgreSQL (Neon) conectado v├¡a TypeORM            |
-| **Gesti├│n de Configuraci├│n**    | Ô£à Completo | Variables de entorno con `ConfigService`           |
-| **Estructura M├│dulo Auth**      | Ô£à Completo | M├│dulo, servicio y controlador creados             |
-| **Modelo de Dominio Usuario**   | Ô£à Completo | Modelo de usuario a nivel de dominio definido      |
-| **Persistencia de Usuarios**    | Ô£à Completo | Entidades TypeORM y Repository Pattern             |
-| **Documentaci├│n Swagger**       | Ô£à Completo | Documentaci├│n interactiva en `/api`                |
-| **Hash de Contrase├▒as**         | Ô£à Completo | Seguridad con bcrypt para usuarios                 |
-| **Autenticaci├│n JWT**           | Ô£à Completo | Login y registro con tokens JWT                    |
-| **JWT Strategy (Passport)**     | Ô£à Completo | Validaci├│n de tokens con Passport.js               |
-| **Guards de Autenticaci├│n**     | Ô£à Completo | JwtAuthGuard y RolesGuard (RBAC)                   |
-| **Decoradores Personalizados**  | Ô£à Completo | @GetUser, @Roles para endpoints                    |
-| **Endpoints Protegidos**        | Ô£à Completo | Users endpoints con autenticaci├│n y roles          |
-| **Forgot Password**             | Ô£à Completo | Reset de contrase├▒a con tokens seguros             |
-| **Emails Transaccionales**      | Ô£à Completo | Resend integrado con templates profesionales       |
-| **Colecci├│n Postman**           | Ô£à Completo | Testing completo con auto-save de JWT              |
-| **Flujo de Trabajo Git**        | Ô£à Completo | Estrategia de branching basada en features         |
+| **Configuración del Proyecto**  | ✅ Completo | Proyecto NestJS inicializado con TypeScript        |
+| **Conexión a Base de Datos**    | ✅ Completo | PostgreSQL (Neon) conectado vía TypeORM            |
+| **Gestión de Configuración**    | ✅ Completo | Variables de entorno con `ConfigService`           |
+| **Estructura Módulo Auth**      | ✅ Completo | Módulo, servicio y controlador creados             |
+| **Modelo de Dominio Usuario**   | ✅ Completo | Modelo de usuario a nivel de dominio definido      |
+| **Persistencia de Usuarios**    | ✅ Completo | Entidades TypeORM y Repository Pattern             |
+| **Documentación Swagger**       | ✅ Completo | Documentación interactiva en `/api`                |
+| **Hash de Contraseñas**         | ✅ Completo | Seguridad con bcrypt para usuarios                 |
+| **Autenticación JWT**           | ✅ Completo | Login y registro con tokens JWT                    |
+| **JWT Strategy (Passport)**     | ✅ Completo | Validación de tokens con Passport.js               |
+| **Guards de Autenticación**     | ✅ Completo | JwtAuthGuard y RolesGuard (RBAC)                   |
+| **Decoradores Personalizados**  | ✅ Completo | @GetUser, @Roles para endpoints                    |
+| **Endpoints Protegidos**        | ✅ Completo | Users endpoints con autenticación y roles          |
+| **Forgot Password**             | ✅ Completo | Reset de contraseña con tokens seguros             |
+| **Emails Transaccionales**      | ✅ Completo | Resend integrado con templates profesionales       |
+| **Colección Postman**           | ✅ Completo | Testing completo con auto-save de JWT              |
+| **Flujo de Trabajo Git**        | ✅ Completo | Estrategia de branching basada en features         |
+| **Módulo Empresas**             | ✅ Completo | Arquitectura Modular, CRUD, Billing & Subscriptions|
+| **Validación RUT Chileno**      | ✅ Completo | Algoritmo de verificación módulo 11                |
 
-### **­ƒôï Caracter├¡sticas Pr├│ximas**
+### **📋 Características Próximas**
 
-- ­ƒÅó Modelo de dominio de Empresa
-- ­ƒôª M├│dulos de Activos y Categor├¡as  
-- Ôÿü´©Å Despliegue en Azure
-- ­ƒôü Integraci├│n con AWS S3
+- 📦 Módulos de Activos y Categorías  
+- ☁️ Despliegue en Azure
+- 📁 Integración con AWS S3
 
 
 ---
 
-## ­ƒî┐ Flujo de Trabajo Git
+## 🌿 Flujo de Trabajo Git
 
 Este proyecto sigue un **flujo de trabajo Git profesional basado en features**:
 
 ```
-main (listo para producci├│n)
-  Ôöé
-  ÔööÔöÇÔöÇ develop (rama de integraci├│n)
-        Ôöé
-        Ôö£ÔöÇÔöÇ feature/database-setup Ô£à
-        Ôö£ÔöÇÔöÇ feature/auth Ô£à
-        Ôö£ÔöÇÔöÇ feature/auth-login ­ƒÜº
-        ÔööÔöÇÔöÇ feature/user-persistence ­ƒôï
+main (listo para producción)
+  │
+  └── develop (rama de integración)
+        │
+        ├── feature/database-setup ✅
+        ├── feature/auth ✅
+        ├── feature/auth-login 🚧
+        └── feature/user-persistence 📋
 ```
 
 ### **Estrategia de Ramas**
 
-| Rama         | Prop├│sito                           |
+| Rama         | Propósito                           |
 | ------------ | ----------------------------------- |
-| `main`       | C├│digo estable, listo para producci├│n |
-| `develop`    | Rama de integraci├│n para features   |
+| `main`       | Código estable, listo para producción |
+| `develop`    | Rama de integración para features   |
 | `feature/*`  | Desarrollo de features aisladas     |
 
 ### **Ejemplo de Flujo de Trabajo**
@@ -929,105 +930,105 @@ git commit -m "feat: implementar mi nueva feature"
 git push origin feature/mi-nueva-feature
 
 # Crear un Pull Request a develop
-# Despu├®s de la revisi├│n, merge a develop
-# Cuando est├® estable, merge develop a main
+# Después de la revisión, merge a develop
+# Cuando esté estable, merge develop a main
 ```
 
-Esto refleja **pr├ícticas de desarrollo en equipo del mundo real**.
+Esto refleja **prácticas de desarrollo en equipo del mundo real**.
 
 ---
 
-## ­ƒøú´©Å Roadmap del Proyecto
+## 🛣️ Roadmap del Proyecto
 
-### **L├¡nea de Tiempo de Desarrollo**
+### **Línea de Tiempo de Desarrollo**
 
 ```mermaid
 gantt
     title Emmott Asset Platform - Roadmap de Desarrollo
     dateFormat YYYY-MM-DD
     section Fase 1: Fundamentos
-    Configuraci├│n Proyecto  :done, p1, 2026-01-01, 2026-01-05
-    Conexi├│n Base de Datos  :done, p2, 2026-01-05, 2026-01-08
-    Estructura M├│dulo Auth  :done, p3, 2026-01-08, 2026-01-12
+    Configuración Proyecto  :done, p1, 2026-01-01, 2026-01-05
+    Conexión Base de Datos  :done, p2, 2026-01-05, 2026-01-08
+    Estructura Módulo Auth  :done, p3, 2026-01-08, 2026-01-12
     
-    section Fase 2: Autenticaci├│n
-    Persistencia Usuarios   :active, p4, 2026-01-12, 2026-01-18
-    Implementaci├│n JWT      :p5, 2026-01-18, 2026-01-25
-    Guards Basados en Roles :p6, 2026-01-25, 2026-02-01
+    section Fase 2: Autenticación
+    Persistencia Usuarios   :done, p4, 2026-01-12, 2026-01-13
+    Implementación JWT      :done, p5, 2026-01-13, 2026-01-13
+    Guards Basados en Roles :done, p6, 2026-01-13, 2026-01-13
     
-    section Fase 3: Caracter├¡sticas Core
-    M├│dulo Empresas         :p7, 2026-02-01, 2026-02-10
-    M├│dulo Activos          :p8, 2026-02-10, 2026-02-20
-    Gesti├│n Categor├¡as      :p9, 2026-02-20, 2026-02-28
+    section Fase 3: Características Core
+    Módulo Empresas         :done, p7, 2026-01-13, 2026-01-14
+    Módulo Activos          :active, p8, 2026-01-14, 2026-01-20
+    Gestión Categorías      :p9, 2026-01-20, 2026-01-25
     
     section Fase 4: Despliegue Nube
     Despliegue Azure        :p10, 2026-03-01, 2026-03-10
-    Integraci├│n AWS S3      :p11, 2026-03-10, 2026-03-15
+    Integración AWS S3      :p11, 2026-03-10, 2026-03-15
     Pipeline CI/CD          :p12, 2026-03-15, 2026-03-20
 ```
 
-### **Fase 1: Fundamentos** Ô£à _Completado_
+### **Fase 1: Fundamentos** ✅ _Completado_
 
-- [x] Inicializaci├│n del proyecto
-- [x] Conexi├│n a base de datos (PostgreSQL/Neon)
-- [x] Gesti├│n de configuraci├│n
-- [x] Estructura del m├│dulo Auth
+- [x] Inicialización del proyecto
+- [x] Conexión a base de datos (PostgreSQL/Neon)
+- [x] Gestión de configuración
+- [x] Estructura del módulo Auth
 - [x] Modelo de dominio de Usuario
 
-### **Fase 2: Autenticaci├│n** Ô£à _Completado_
+### **Fase 2: Autenticación** ✅ _Completado_
 
 - [x] Convertir modelos de dominio a entidades TypeORM
 - [x] Implementar persistencia de usuarios
-- [x] Hash de contrase├▒as (bcrypt)
-- [x] Autenticaci├│n JWT (login/registro)
+- [x] Hash de contraseñas (bcrypt)
+- [x] Autenticación JWT (login/registro)
 - [x] JWT Strategy con Passport
 - [x] Guards basados en roles (RBAC)
 - [x] Decoradores personalizados (@GetUser, @Roles)
-- [x] Endpoints protegidos con autenticaci├│n
-- [x] Documentaci├│n Swagger completa
+- [x] Endpoints protegidos con autenticación
+- [x] Documentación Swagger completa
 
-### **Fase 3: Caracter├¡sticas Core** ­ƒôï _Siguiente_
+### **Fase 3: Características Core** ✅ _En Progreso_
 
-- [ ] Modelo de dominio de Empresa
-- [ ] Operaciones CRUD de Empresa
+- [x] Modelo de dominio de Empresa
+- [x] Operaciones CRUD de Empresa
 - [ ] Modelo de dominio de Activo
-- [ ] Gesti├│n de Categor├¡as
+- [ ] Gestión de Categorías
 - [ ] Operaciones CRUD de Activos
 
-### **Fase 4: Despliegue en la Nube** ­ƒôï _Planificado_
+### **Fase 4: Despliegue en la Nube** 📋 _Planificado_
 
 - [ ] Despliegue en Azure App Service
-- [ ] Integraci├│n con AWS S3 para medios
-- [ ] Configuraci├│n basada en entornos
+- [ ] Integración con AWS S3 para medios
+- [ ] Configuración basada en entornos
 - [ ] Pipeline CI/CD
 
 ---
 
-## ­ƒºá Decisiones Arquitect├│nicas
+## 🧠 Decisiones Arquitectónicas
 
-### **┬┐Por qu├® una Base de Datos ├Ünica?**
+### **¿Por qué una Base de Datos Única?**
 
-Las plataformas SaaS t├¡picamente usan una base de datos ├║nica con multi-tenancy l├│gico para eficiencia de costos y mantenimiento m├ís f├ícil.
+Las plataformas SaaS típicamente usan una base de datos única con multi-tenancy lógico para eficiencia de costos y mantenimiento más fácil.
 
-### **┬┐Por qu├® Multi-Tenancy L├│gico?**
+### **¿Por qué Multi-Tenancy Lógico?**
 
-Usar `companyId` para aislamiento de datos es m├ís simple que base-de-datos-por-tenant y escala mejor para SaaS peque├▒o a mediano.
+Usar `companyId` para aislamiento de datos es más simple que base-de-datos-por-tenant y escala mejor para SaaS pequeño a mediano.
 
-### **┬┐Por qu├® Roles de Plataforma como Enums?**
+### **¿Por qué Roles de Plataforma como Enums?**
 
-Los roles a nivel de plataforma (`SUPER_ADMIN`, `COMPANY_ADMIN`) son estables y expl├¡citos. Los roles din├ímicos a nivel de empresa se agregar├ín m├ís adelante.
+Los roles a nivel de plataforma (`SUPER_ADMIN`, `COMPANY_ADMIN`) son estables y explícitos. Los roles dinámicos a nivel de empresa se agregarán más adelante.
 
-### **┬┐Por qu├® Sin Docker?**
+### **¿Por qué Sin Docker?**
 
-Este proyecto se enfoca en **arquitectura backend** y **calidad de c├│digo**, no en contenedorizaci├│n. Docker puede agregarse m├ís adelante si es necesario.
+Este proyecto se enfoca en **arquitectura backend** y **calidad de código**, no en contenedorización. Docker puede agregarse más adelante si es necesario.
 
-### **┬┐Por qu├® Multi-Nube (Azure + AWS)?**
+### **¿Por qué Multi-Nube (Azure + AWS)?**
 
-Demuestra escenarios del mundo real donde diferentes proveedores de nube se usan para diferentes servicios (c├│mputo vs. almacenamiento).
+Demuestra escenarios del mundo real donde diferentes proveedores de nube se usan para diferentes servicios (cómputo vs. almacenamiento).
 
 ---
 
-## ­ƒöù Con├®ctate Conmigo
+## 🔗 Conéctate Conmigo
 
 <div align="center">
 
@@ -1040,28 +1041,28 @@ _Desarrollador Backend | Especialista NestJS | Entusiasta de la Nube_
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/marceloemmott)
 [![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?style=for-the-badge&logo=google-chrome&logoColor=white)](https://marceloemmott.dev)
 
-**­ƒôº Email:** [emmottmarcelo2026@gmail.com](mailto:emmottmarcelo2026@gmail.com)
+**📧 Email:** [emmottmarcelo2026@gmail.com](mailto:emmottmarcelo2026@gmail.com)
 
 </div>
 
 ---
 
-## ­ƒôä Licencia
+## 📄 Licencia
 
-Este proyecto est├í licenciado bajo la **Licencia MIT** ÔÇö ver el archivo [LICENSE](LICENSE) para m├ís detalles.
+Este proyecto está licenciado bajo la **Licencia MIT** — ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
 <div align="center">
 
-### Ô£¿ **Construido con intenci├│n, no solo c├│digo**
+### ✨ **Construido con intención, no solo código**
 
-_Este proyecto demuestra c├│mo piensa un ingeniero backend, no solo c├│mo se escribe c├│digo._
+_Este proyecto demuestra cómo piensa un ingeniero backend, no solo cómo se escribe código._
 
-**Cada decisi├│n es intencional, documentada y alineada con pr├ícticas de desarrollo SaaS del mundo real.**
+**Cada decisión es intencional, documentada y alineada con prácticas de desarrollo SaaS del mundo real.**
 
 ---
 
-**Ô¡É ┬íSi encuentras ├║til este proyecto, considera darle una estrella!**
+**⭐ ¡Si encuentras útil este proyecto, considera darle una estrella!**
 
 </div>
